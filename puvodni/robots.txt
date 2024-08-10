@@ -1,0 +1,7 @@
+﻿Sitemap: http://pestovani-konopi.info/sitemap.xml
+Sitemap: http://www.pestovani-konopi.info/sitemap.xml
+Sitemap: https://pestovani-konopi.info/sitemap.xml
+Sitemap: https://www.pestovani-konopi.info/sitemap.xml
+User-agent: *
+Disallow: /kontakt/ok/
+Disallow: /pocitani/

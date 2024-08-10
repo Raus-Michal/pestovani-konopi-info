@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="600" height="600" viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" stroke="#00336C" fill="none">
+<path d="M 27,575 27,200 300,10 586,200 l -10e-6,375 z" />
+<path d="m 27,264 558,0" />
+<path d="m 55,570 0,-218 260,0 0,218" />
+<path d="m 464,573 0,-167 100,0 V 573" />
+<rect width="70" height="65" x="479" y="425" />
+<path d="m 477,511 27,5" />
+<path d="m 430,405 -80,0 0,80 80,0 z" />
+<path d="M 388,405 V 485" />
+<path d="m 350,445 80,0" />
+<path stroke-dasharray="10" stroke-width="2.5" d="m 140,120 c 118,37 225,36 324,0"  />
+<g stroke="#006769">
+<path d="m 163,117 v 105" />
+<path d="m 143,156 20,-16 20,16" />
+<path d="m 143,173 20,-16 20,16" />
+<path d="M 145,188 163,174 l 18,14" />
+<path d="M 147,203 163,190 l 17,14" />
+<path d="M 151,218 163,207 l 14,11" />
+<ellipse cx="163" cy="225" rx="1.5" ry="6" />
+<g transform="translate(75,15)">
+<path d="m 163,117 v 105" />
+<path d="m 143,156 20,-16 20,16" />
+<path d="m 143,173 20,-16 20,16" />
+<path d="M 145,188 163,174 l 18,14" />
+<path d="M 147,203 163,190 l 17,14" />
+<path d="M 151,218 163,207 l 14,11" />
+<ellipse cx="163" cy="225" rx="1.5" ry="6" />
+</g>
+<g transform="translate(140,20)">
+<path d="m 163,117 v 105" />
+<path d="m 143,156 20,-16 20,16" />
+<path d="m 143,173 20,-16 20,16" />
+<path d="M 145,188 163,174 l 18,14" />
+<path d="M 147,203 163,190 l 17,14" />
+<path d="M 151,218 163,207 l 14,11" />
+<ellipse cx="163" cy="225" rx="1.5" ry="6" />
+</g>
+<g transform="translate(205,15)">
+<path d="m 163,117 v 105" />
+<path d="m 143,156 20,-16 20,16" />
+<path d="m 143,173 20,-16 20,16" />
+<path d="M 145,188 163,174 l 18,14" />
+<path d="M 147,203 163,190 l 17,14" />
+<path d="M 151,218 163,207 l 14,11" />
+<ellipse cx="163" cy="225" rx="1.5" ry="6" />
+</g>
+<g transform="translate(280,0)">
+<path d="m 163,117 v 105" />
+<path d="m 143,156 20,-16 20,16" />
+<path d="m 143,173 20,-16 20,16" />
+<path d="M 145,188 163,174 l 18,14" />
+<path d="M 147,203 163,190 l 17,14" />
+<path d="M 151,218 163,207 l 14,11" />
+<ellipse cx="163" cy="225" rx="1.5" ry="6" />
+</g></g>
+<path stroke-dasharray="10" stroke-width="2.5" d="M 55,384 C 156,429 237,413 315,384" />
+<g stroke="#006769">
+<g transform="translate(-70,270)">
+<path d="m 163,117 v 105" />
+<path d="m 143,156 20,-16 20,16" />
+<path d="m 143,173 20,-16 20,16" />
+<path d="M 145,188 163,174 l 18,14" />
+<path d="M 147,203 163,190 l 17,14" />
+<path d="M 151,218 163,207 l 14,11" />
+<ellipse cx="163" cy="225" rx="1.5" ry="6" />
+</g>
+<g transform="translate(-10,285)">
+<path d="m 163,117 v 105" />
+<path d="m 143,156 20,-16 20,16" />
+<path d="m 143,173 20,-16 20,16" />
+<path d="M 145,188 163,174 l 18,14" />
+<path d="M 147,203 163,190 l 17,14" />
+<path d="M 151,218 163,207 l 14,11" />
+<ellipse cx="163" cy="225" rx="1.5" ry="6" />
+</g>
+<g transform="translate(50,285)">
+<path d="m 163,117 v 105" />
+<path d="m 143,156 20,-16 20,16" />
+<path d="m 143,173 20,-16 20,16" />
+<path d="M 145,188 163,174 l 18,14" />
+<path d="M 147,203 163,190 l 17,14" />
+<path d="M 151,218 163,207 l 14,11" />
+<ellipse cx="163" cy="225" rx="1.5" ry="6" />
+</g>
+<g transform="translate(110,270)">
+<path d="m 163,117 v 105" />
+<path d="m 143,156 20,-16 20,16" />
+<path d="m 143,173 20,-16 20,16" />
+<path d="M 145,188 163,174 l 18,14" />
+<path d="M 147,203 163,190 l 17,14" />
+<path d="M 151,218 163,207 l 14,11" />
+<ellipse cx="163" cy="225" rx="1.5" ry="6" />
+</g></g>
+</svg>
