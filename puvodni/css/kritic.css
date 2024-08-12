@@ -326,12 +326,6 @@ font-size:calc(1.25rem + .25vw);
 text-align:left;
 }
 
-
-.m35r
-{
-max-width:35rem;
-}
-
 hgroup
 {
 margin-bottom:1rem;
@@ -434,6 +428,7 @@ align-items:center;
 {
 display:flex;
 flex-direction:column;
+width:100%;
 max-width:75rem;  /* 1200px */
 }
 
@@ -647,6 +642,11 @@ grid-area:pat;
 display:flex;
 justify-content:space-between;
 flex-wrap:wrap;
+}
+
+.lamac div:first-child
+{
+max-width:25rem;
 }
 
 .sdilet

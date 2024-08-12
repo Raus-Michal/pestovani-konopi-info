@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="400" height="600" viewBox="0 0 400 600" version="1.1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="rgb(0,158,107)" fill="rgb(0,158,107)" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" baseProfile="full" preserveAspectRatio="xMidYMid meet">
+<defs>
+<filter id="fil" style="color-interpolation-filters:sRGB;" x="-0.024" y="-0.24" width="1.04" height="1.4">
+<feGaussianBlur result="result1" in="SourceAlpha" stdDeviation="2.8" />
+<feSpecularLighting result="result0" specularExponent="200" specularConstant="0.5" surfaceScale="1.5">
+<feDistantLight azimuth="225" elevation="24" />
+</feSpecularLighting>
+<feComposite result="result6" operator="in" in2="SourceAlpha" />
+<feMorphology radius="5" operator="dilate" />
+<feGaussianBlur result="result11" stdDeviation="6" />
+<feDiffuseLighting surfaceScale="2" result="result3" diffuseConstant="2" in="result1">
+<feDistantLight elevation="25" azimuth="225" />
+</feDiffuseLighting>
+<feBlend result="result7" mode="multiply" in="result3" in2="SourceGraphic" />
+<feComposite in="result7" operator="in" in2="SourceAlpha" result="result91" />
+<feBlend result="result9" mode="lighten" in="result6" in2="result91" />
+<feComposite in="result11" in2="result9" />
+</filter>
+</defs>
+<defs>
+<filter id="fil2" filterUnits="userSpaceOnUse" x="0" y="0" width="400" height="400">
+<feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+<feOffset in="blur" dx="4" dy="4" result="offsetBlur"/>
+<feSpecularLighting in="blur" surfaceScale="5" specularConstant="0.75" specularExponent="200" lighting-color="#bbbbbb" result="specOut">
+<fePointLight x="-5000" y="-10000" z="20000"/>
+</feSpecularLighting>
+<feComposite in="specOut" in2="SourceAlpha" operator="in" result="specOut"/>
+<feComposite in="SourceGraphic" in2="specOut" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litPaint"/>
+<feMerge>
+<feMergeNode in="offsetBlur"/>
+<feMergeNode in="litPaint"/>
+</feMerge>
+</filter>
+</defs>
+<rect width="360" height="560" x="20" y="20" fill="#00336C" />
+<g style="filter:url(#fil)">
+<rect width="273" height="114" x="63" y="65" fill="rgb(255,172,207)" />
+<rect width="50" height="50" x="75" y="235" />
+<rect width="50" height="50" x="175" y="235" />
+<rect width="50" height="50" x="275" y="235" />
+<rect width="50" height="50" x="75" y="311" />
+<rect width="50" height="50" x="175" y="311" />
+<rect width="50" height="50" x="275" y="311" />
+<rect width="50" height="125" x="75" y="391" />
+<rect width="50" height="50" x="175" y="391" />
+<rect width="50" height="50" x="275" y="391" />
+<rect width="50" height="50" x="175" y="468" />
+<rect width="50" height="50" x="275" y="468" />
+</g>
+</svg>

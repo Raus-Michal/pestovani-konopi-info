@@ -1,11 +1,4 @@
-﻿.mw75
-{
-/* max-width:100rem; */
-width:100%;
-}
-
-
-ol
+﻿ol
 {
 margin:0;
 padding:.5rem;
@@ -387,20 +380,20 @@ margin:.5rem;
 .ol-klas
 {
 width:100%;
-max-width:30ch;
-padding-left:2rem;
-padding-right:1rem;
+max-width:40ch;
+padding:0;
+padding-left:1rem;
 }
 
 .ol-klas li
 {
-font-size:.75rem;
 text-align:justify;
--webkit-hyphens:auto;;
+-webkit-hyphens:auto;
 hyphens:auto;
 margin-bottom:.5rem;
 font-weight:normal;
 list-style-type:disc;
+font-size:.9rem;
 line-height:1.25;
 }
 
@@ -419,17 +412,24 @@ max-width:25ch;
 {
 font-size:.8rem;
 margin-bottom:.5rem;
+text-align:left;
 }
 
 
 dialog
 {
-background:var(--b2);
+width:80%;
+max-width:500px;
+height:-moz-fit-content;
+height:-webkit-fit-content;
+height:fit-content;
+max-height:80%;
+background:white;
 color:var(--b3);
 font-weight:bold;
 border:0px solid var(--b5);
-border-radius: 8px;
-padding:0 0 1rem 0;
+border-radius:8px;
+padding:0;
 }
 
 
@@ -448,7 +448,7 @@ padding:0 1rem 0 1rem;
 
 dialog h3, dialog h4
 {
-padding:0 1rem 0 1rem;
+padding:1rem 1rem 0 1rem;
 }
 
 
@@ -464,12 +464,11 @@ dialog button
 {
 cursor:pointer;
 padding:.5rem;
-font-family:"BioRhyme","Verda";
-font-size:1.15rem;
-font-weight:800;
+font-family:"BioRhyme","sans-serif";
+font-size:1rem;
+font-weight:500;
 border-radius:5px;
 border-style:none;
-box-shadow:2.5px 2.5px 4px var(--b3);
 letter-spacing:.05rem;
 }
 
@@ -479,39 +478,72 @@ display:flex;
 align-items:center;
 padding:5px;
 margin:0;
-margin-bottom:1rem;
 gap:1rem;
 background-color:var(--b5);
 border-bottom:2px solid var(--b3);
 }
 
+.d_pata
+{
+position:-webkit-sticky;
+position:sticky;
+bottom:-2px;
+left:0px;
+z-index:2;
+background-color:var(--b5);
+border-top:2px solid var(--b3);
+box-shadow:0px -10px 10px white;
+}
+
+
 .b-dia
 {
+margin:1rem 0;
 color:var(--b3);
 background:white;
 border-color:var(--b4);
+font-weight:500;
 }
 
 
 .px50
 {
 width:50px;
+min-width:50px;
 height:50px;
+min-height:50px;
 }
 
 .hla_p
 {
-font-family:"BioRhyme", "Verda";
+font-family:"BioRhyme","sans-serif";
 margin:0;
 font-size:1rem;
-text-shadow:0px 0px 20px var(--b2);
+color:black;
+font-weight:500;
 text-align:left;
+}
+
+.oa
+{
+overflow:auto;
 }
 
 .w_30
 {
 width:30%;
 }
+
+.mb0
+{
+margin-bottom:0;
+}
+
+.h3r
+{
+height:3rem;
+}
+
 
 .r-1,.r-2,.r-3,.r-4,.r-5,.r-6,.r-7
 {

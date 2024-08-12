@@ -10,7 +10,7 @@ skript.parentNode.insertBefore(styl,skript);
 });}};
 
 stylAsyn.nacti("../css/css.css?v=1"); // spuštění funkce k načtení ccs asynchronně
-stylAsyn.nacti("../css/kalkulator.css?v=1");  // spuštění funkce k načtení ccs asynchronně
+stylAsyn.nacti("../css/kalkulator.css?v=2");  // spuštění funkce k načtení ccs asynchronně
 
 const sdilet={_idFB:"sdil-fb",_idTW:"sdil-tw",SIRKA:600,VYSKA:600,min_VYSKA:800,min_SIRKA:800,
 async prepis(){
@@ -227,23 +227,50 @@ document.getElementById(dialog).showModal();
 else if(hodnota=="off")
 {
 document.getElementById(dialog).close();
+return; // uzavře dialogové okno a ukončí funkci
 }
 if(button!=null)
 {
-document.getElementById(button).focus();
-}
+setTimeout(()=>{
+document.getElementById(button).focus(); // budede fokus na button, podkud bylo zasláno jeho ID
+},1000);} // zpoždění zajistí bezproblémové fokus prvku po jeho vytvoření display - grid a případném provedení níže scroolu
+
+
+
+// po otevření dialogového okna se provede scrool na jeho konec a na jeho začátek, aby uživatel věděl, že obsah může být i mimo viditelné dialog okno
+let s_up=""; // proměnná do které bude uloženo ID kotvy HTML prvku k provedení ScroolTo, horní prvek dialogového okna
+let s_down=""; // proměnná do které bude uloženo ID kotvy HTML prvku k provedení ScroolTo, spodní prvek dialogového okna
+
 if(dialog=="d-jinak")
 {
-setTimeout(()=>{
-document.getElementById('nadJ').scrollIntoView({behavior:'smooth'}); // pokud bude dialogové okno Hmotnost konopí jedné rostliny - dojde k scrool na počátek dlouhého okna
-},250);
+// pokud bude otevřeno dialogové okno:Změna právní kvalifikace
+s_up="h_kl"; // id kotvy pro scrool nahoru dialogového okna
+s_down="b_kl"; //  id kotvy pro scrool dospodu dialogového okna
 }
-if(dialog=="d-kytek")
+else if(dialog=="d-kytek")
 {
+// pokud bude otevřeno dialogové okno:Hmotnost konopí jedné rostliny
+s_up="h_hm"; // id kotvy pro scrool nahoru dialogového okna
+s_down="b_hm"; //  id kotvy pro scrool dospodu dialogového okna
+}
+else if(dialog=="d-zpusob")
+{
+//Způsob pěstování
+s_up="h_zp"; // id kotvy pro scrool nahoru dialogového okna
+s_down="b_zp"; //  id kotvy pro scrool dospodu dialogového okna
+}
+
+if(s_up!=""&&s_down!="")
+{
+// pokud obě proměnné nabyli hodnot
 setTimeout(()=>{
-  document.getElementById('hlav').scrollIntoView({behavior:'smooth'}); // pokud bude dialogové okno Hmotnost konopí jedné rostliny - dojde k scrool na počátek dlouhého okna
+document.getElementById(s_down).scrollIntoView({behavior:'smooth'}); // nejprve provede scroll na kotvu, na konci dialogového okna
 },250);
-}},
+setTimeout(()=>{
+document.getElementById(s_up).scrollIntoView({behavior:'smooth'}); // provede scroll na kotvu, začátek dialogového okna
+},750);}
+
+},
 posluchace(){
 document.getElementById("i-kytek").addEventListener("click",()=>{this.okno.bind(this)("on","d-kytek","dia_kytek");});
 document.getElementById("dia_kytek").addEventListener("click",()=>{this.okno.bind(this)("off","d-kytek");});
