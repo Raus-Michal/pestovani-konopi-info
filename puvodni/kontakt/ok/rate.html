@@ -6,8 +6,8 @@
 <link rel="stylesheet" href="../css/potvr.css?v=1">
 <link rel="shortcut icon" href="../../svg/logo.svg">
 <meta name="robots" content="noindex,nofollow">
-<meta name="description" content="Potvrzení, že došlo k odeslání konaktního formuláře.">
-<meta name="keywords" content="potvrzení,odesláno">
+<meta name="description" content="Oznámení, že došlo k chybě při odesílání formuláře.">
+<meta name="keywords" content="chyba,odesláno">
 <meta name="author" content="Boar-cz">
 <meta name="application-name" content="Boar-cz">
 <meta name="author" content="Boar-cz">
@@ -19,7 +19,7 @@
 <meta name="msapplication-TileColor" content="#ffc40d">
 <meta name="msapplication-config" content="../favico/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
-<title>Potvrzení o odeslání</title>
+<title>Chyba při odesílání</title>
 </head>
 <body>
 <div class="potvrzeni">
@@ -40,18 +40,16 @@
 
 <div class="dia_obsah">
 
-<h1>Vše bylo odesláno!</h1>
+<h1>Maximální počet sdělení!</h1>
 <div class="anim_o">
-<svg class="w80" width="200" height="200" viewBox="0 0 200 200" stroke="transparent" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none">
-<circle cx="100" cy="100" r="90" stroke="rgb(87,168,110)" />
-<path d="M 50,130 50,130 50,130" stroke-width="15">
-<animate id="ok_b1" begin="1s" attributeName="stroke" from="transparent" to="rgb(0,158,107)" dur="25ms" fill="freeze" calcMode="paced" />
-<animate id="ok_b2" begin="ok_b1.begin" attributeName="d" from="M 50,130 50,130 50,130" to="M 50,130 85,160 85,160" dur="250ms" fill="freeze" calcMode="paced" />
-<animate begin="ok_b2.end" attributeName="d" from="M 50,130 85,160 85,160" to="M 50,130 85,160 145,60" dur="500ms" fill="freeze" calcMode="paced" />
-</path>
+<svg class="w80" width="50" height="50" viewBox="0 0 50 50" stroke="red" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none">
+<line x1="5" y1="5" x2="45" y2="45" />
+<line x1="45" y1="5" x2="5" y2="45" />
+</svg>
 </svg>
 </div>
-<p>Děkujeme za Váše sdělení.</p>
+<p>Byl&nbsp;překročen limit počtů zaslaných sdělení.</p>
+<p>Zkuste&nbsp;to prosím znovu za&nbsp;24&nbsp;hodin.</p>
 <button class="but" type="button" onClick="window.location.replace('../');" title="Vrátit se zpět">Vrátit se zpět</button>
 </div>
 </div>
