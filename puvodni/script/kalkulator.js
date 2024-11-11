@@ -833,27 +833,29 @@ async function statistika(){
 // funkce odešle připočtení statistiky po interakci stránky s uživatelem
 
 const dataToSend='kalkulator'; // data, která budou zaslána
-try{
-  // Vytvoření AJAX požadavku
-const xhr=new XMLHttpRequest();
 
-xhr.open('POST','../statistika/zapis.php',true);
-xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+// odesílá data
+const token=document.querySelector("meta[name='csrf-token']").getAttribute("content"); // načte token z meta tagu HTML
+const data=`csrf_token=${encodeURIComponent(token)}&zapocti=${encodeURIComponent(dataToSend)}`; // nachystá data na odeslání pro fetch API metodou post
 
-// Reakce na dokončení požadavku
-xhr.onload=()=>{
-if(xhr.status===200){
-// console.log('Data byla úspěšně odeslána.'); 
-}else{
-// console.log('Došlo k chybě při odesílání dat.');
-}
+// Vytvoření AJAX požadavku
+fetch("statistika/zapis.php",{
+method:"POST",  // Metoda POST
+headers:{
+"Content-Type":"application/x-www-form-urlencoded"  // Nastavení typu obsahu
+},
+body:data  // data ve formátu klíč=hodnota
+})
+.then(response=>response.text())  // Očekáváme textovou odpověď
+.then(result=>{
+console.log('Výsledek:',result);
+})
+.catch(error=>{
+console.error('Chyba při odesílání dat:',error);
+});
+
+
 };
-
-xhr.send('data='+encodeURIComponent(dataToSend));  // Odeslání dat
-}
-catch(err){
-console.log("Statistická data neodeslána. Chyba:"+err);
-}};
 
 const pocitej=()=>{
 statistika(); // připočítá statistiku z klik

@@ -1,6 +1,6 @@
 
-# NASTAVENÍ, že první bude hledat index.html a když ho nenajde, tak index.php, to platí pro homepage i podsložky webu
-DirectoryIndex index.html index.php
+# NASTAVENÍ, že první bude hledat index.php a když ho nenajde, tak index.html, to platí pro homepage i podsložky webu
+DirectoryIndex index.php index.html
 
 # NASTAVENÍ MIME
 
@@ -9,6 +9,8 @@ AddType image/jpeg .jpg .jpeg
 AddType image/png .png
 AddType image/gif .gif
 AddType image/svg+xml .svg .svgz
+AddType image/avif .avif
+AddType image/webp .webp
 
 # Video
 AddType video/mp4 .mp4
@@ -99,6 +101,7 @@ RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L]
   ExpiresByType image/gif "access plus 1 year"
   ExpiresByType image/svg+xml "access plus 1 year"
   ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/avif "access plus 1 year"
 </IfModule>
 
 <IfModule mod_headers.c>
@@ -113,7 +116,7 @@ RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L]
   </FilesMatch>
 
   # Images
-  <FilesMatch "\.(jpg|jpeg|png|gif|svg|webp)$">
+  <FilesMatch "\.(jpg|jpeg|png|gif|svg|webp|avif)$">
       Header set Cache-Control "public, max-age=31536000"
   </FilesMatch>
 </IfModule>

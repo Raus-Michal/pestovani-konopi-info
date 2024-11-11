@@ -96,21 +96,21 @@ async statistika(){
 // funkce odešle připočtení statistiky po interakci stránky s uživatelem
 
 
-if(this.zakladni==false||this.vyznamny==false) // podmínka blokuje vstup pokud byly odeslána data o základním a významným uživateli
+if(this.zakladni===false||this.vyznamny===false) // podmínka blokuje vstup pokud byly odeslána data o základním a významným uživateli
 {
 
 ++this.pocet_pouziti; // přičte použití scroll anebo risize uživatelem
-let dataToSend=''; // data, která budou zaslána
+let dataToSend=""; // data, která budou zaslána
 
 if(this.pocet_pouziti>this.pocet_vyznamny&&this.zakladni==false) // pokud uživatel použil scroll anebo resize více jak 50x
 {
 this.zakladni=true; // nastavením proměnné na true zablokuje odesílání dat o základním uživateli
-dataToSend='homepage'; // data, která budou zaslána
+dataToSend="homepage"; // data, která budou zaslána
 }
 else if(this.pocet_pouziti>800&&this.vyznamny==false) // pokud uživatel použil scroll anebo resize více jak 1500x
 {
 this.vyznamny=true; // nastavením proměnné na true zablokuje odesílání dat o významným uživateli
-dataToSend='vyznamny_homepage'; // data, která budou zaslána
+dataToSend="vyznamny_homepage"; // data, která budou zaslána
 }
 else
 {
@@ -118,26 +118,26 @@ return; // pokud nebude splněna ani jedna podmínka dojde k návratu z funkce, 
 }
 
 
-try{
-  // Vytvoření AJAX požadavku
-const xhr=new XMLHttpRequest();
-xhr.open('POST','statistika/zapis.php',true);
-xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+// odesílá data
+const token=document.querySelector("meta[name='csrf-token']").getAttribute("content"); // načte token z meta tagu HTML
+const data=`csrf_token=${encodeURIComponent(token)}&zapocti=${encodeURIComponent(dataToSend)}`; // nachystá data na odeslání pro fetch API metodou post
 
-// Reakce na dokončení požadavku
-xhr.onload=()=>{
-if(xhr.status===200){
-// console.log('Data byla úspěšně odeslána.'); 
-}else{
-// console.log('Došlo k chybě při odesílání dat.');
-}
-};
-
-xhr.send('data='+encodeURIComponent(dataToSend));  // Odeslání dat
-}
-catch(err){
-console.log("Statistická data neodeslána. Chyba:"+err);
-}}},
+// Vytvoření AJAX požadavku
+fetch("statistika/zapis.php",{
+method:"POST",  // Metoda POST
+headers:{
+"Content-Type":"application/x-www-form-urlencoded"  // Nastavení typu obsahu
+},
+body:data  // data ve formátu klíč=hodnota
+})
+.then(response=>response.text())  // Očekáváme textovou odpověď
+.then(result=>{
+console.log('Výsledek:',result);
+})
+.catch(error=>{
+console.error('Chyba při odesílání dat:',error);
+});
+}},
 
 handleEvent(){
 

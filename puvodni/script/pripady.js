@@ -43,35 +43,35 @@ pocet_pro_zapocet:50, // počet použití sroll anebo resize pro započítání 
 
 async statistika(){
 // funkce odešle připočtení statistiky po interakci stránky s uživatelem
-if(this.pocet_pouziti!=-1) // -1 této proměnné bude určovat blokaci v počítání, protože uživatel již byl připočítán
+if(this.pocet_pouziti!==-1) // -1 této proměnné bude určovat blokaci v počítání, protože uživatel již byl připočítán
 {
 ++this.pocet_pouziti; // přičte použití visualViewport
 if(this.pocet_pouziti>this.pocet_pro_zapocet) // pokud uživatel použil visualViewport více jak 50x
 {
 this.pocet_pouziti=-1; // nastavením proměnné na -1, určuje ukončení počítání použití visualViewport uživatelem
 
-const dataToSend='pripady'; // data, která budou zaslána
-try{
-  // Vytvoření AJAX požadavku
-const xhr=new XMLHttpRequest();
+const dataToSend="pripady"; // data, která budou zaslána
+// odesílá data
+const token=document.querySelector("meta[name='csrf-token']").getAttribute("content"); // načte token z meta tagu HTML
+const data=`csrf_token=${encodeURIComponent(token)}&zapocti=${encodeURIComponent(dataToSend)}`; // nachystá data na odeslání pro fetch API metodou post
 
-xhr.open('POST','../statistika/zapis.php',true);
-xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+// Vytvoření AJAX požadavku
+fetch("statistika/zapis.php",{
+method:"POST",  // Metoda POST
+headers:{
+"Content-Type":"application/x-www-form-urlencoded"  // Nastavení typu obsahu
+},
+body:data  // data ve formátu klíč=hodnota
+})
+.then(response=>response.text())  // Očekáváme textovou odpověď
+.then(result=>{
+console.log('Výsledek:',result);
+})
+.catch(error=>{
+console.error('Chyba při odesílání dat:',error);
+});
 
-// Reakce na dokončení požadavku
-xhr.onload=()=>{
-if(xhr.status===200){
-// console.log('Data byla úspěšně odeslána.'); 
-}else{
-// console.log('Došlo k chybě při odesílání dat.');
-}
-};
-
-xhr.send('data='+encodeURIComponent(dataToSend));  // Odeslání dat
-}
-catch(err){
-console.log("Statistická data neodeslána. Chyba:"+err);
-}}}},
+}}},
 
 handleEvent(){
 
