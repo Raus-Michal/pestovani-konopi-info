@@ -839,7 +839,7 @@ const token=document.querySelector("meta[name='csrf-token']").getAttribute("cont
 const data=`csrf_token=${encodeURIComponent(token)}&zapocti=${encodeURIComponent(dataToSend)}`; // nachystá data na odeslání pro fetch API metodou post
 
 // Vytvoření AJAX požadavku
-fetch("statistika/zapis.php",{
+fetch("../statistika/zapis.php",{
 method:"POST",  // Metoda POST
 headers:{
 "Content-Type":"application/x-www-form-urlencoded"  // Nastavení typu obsahu
