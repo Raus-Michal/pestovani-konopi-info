@@ -480,15 +480,14 @@ grid-template-areas:
 .gl_1,.gl_2,.gl_3
 {
 display:flex;
-align-items: flex-start;
+align-items:flex-start;
+aspect-ratio:1/1;
 }
 
 
 .gl_1 img,.gl_2 img,.gl_3 img
 {
-/*mix-blend-mode: screen;*/
 background-clip:padding-box;
-opacity:.85;
 border-radius:2px;
 box-shadow:0px 0px 4px black;
 }
