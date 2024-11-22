@@ -12,7 +12,7 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 <link rel="stylesheet" href="../css/kritic.css?v=2">
 <noscript>
 <link rel="stylesheet" href="../css/css.css?v=1">
-<link rel="stylesheet" href="../css/kalkulator.css?v=2">
+<link rel="stylesheet" href="../css/kalkulator.css?v=3">
 </noscript>
 <link rel="preload" as="image" href="../jpg/poz_m.png" media="(max-width:623px)">
 <link rel="preload" as="image" href="../jpg/poz.png" media="(min-width:624px)">
@@ -25,7 +25,7 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:update_time" content="2024-11-10T18:00:00+01:00">
+<meta property="og:update_time" content="2024-11-21T18:00:00+01:00">
 <meta property="og:locale" content="cs_CZ">
 <meta property="og:site_name" content="Pěstování konopí">
 <meta property="og:type" content="object">
@@ -53,9 +53,9 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 "@type": "WebApplication",
 "@id": "WebApplication",
 "dateCreated": "2023-05-30",
-"dateModified": "2024-11-10",
+"dateModified": "2024-11-21",
 "datePublished": "2023-05-30",
-"version": "[1,2]",
+"version": "[1,3]",
 "mainEntityOfPage": "https://www.pestovani-konopi.info",
 "description": "Kalkulátor, který vám podle množství rostlin konopí vypočítá délku trestu odnětí svobody.",
 "abstract": "Jednoduchá Javascriptová aplikace na výpočet trestu odnětí svobody ze současné legislativy.",
@@ -124,43 +124,76 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 </div>
 <form class="flex j_c" onSubmit="pocitej(); return false;" method="post" action="neni.php" enctype="multipart/form-data">
 <ul class="z-box">
-<li class="z-z">
+<li class="z-z jcsb">
 <label>Způsob pěstování konopí:</label>
+<div class="box-but jic">
+<span class="obr1"> </span>
+<span class="obr2"> </span>
+</div>
 <div class="box-but">
 <button id="amter" class="but-m" type="button" title="Amatérský způsob pěstování" disabled>Amatérský</button>
 <button id="profi" class="but-m" type="button" title="Profesionální způsob pěstování" disabled>Profesionální</button>
 </div>
 <button id="i-zpusob" type="button" class="but" title="Jakou možnost zvolit?" disabled><span class="in"> </span>Jaký zvolit způsob pěstování?</button>
 </li>
-<li class="z-r">
+<li class="z-r jcsb">
 <label>Počet rostlin konopí:</label>
-<div>
-<input class="inp" type="number" id="kytek" name="kytek" placeholder="kusů"  min="1" max="1667" title="Zadejte počet rostlin konopí, které by měly být vypěstovány" required disabled> Ks
+<div class="box-but jic a_i">
+<div class="jse">
+<span class="obr3"> </span>
 </div>
+<div class="kyt">
+<input class="inp" type="number" id="kytek" name="kytek" inputmode="numeric" placeholder="1-250"  min="1" max="1667" title="Zadejte počet rostlin konopí, které by měly být vypěstovány" required disabled>&nbsp;kusů
+</div>
+</div>
+
 <button id="i-kytek" type="button" class="but" title="Kolik je hmotnost konopí jedné rostliny?" disabled><span class="in"> </span>Hmotnost jedné rostliny konopí</button>
 </li>
 <li class="z-m">
 <label>Má být vypěstováno:</label>
 <div class="hmot">
-<input class="inp" type="number" id="gramu" name="gramu" placeholder="hmotnost"  min="1" max="100000" title="Zadejte hmotnost konopí, které by mělo být vypěstováno" required disabled> gramů&nbsp;konopí
+<input class="inp" type="number" id="gramu" name="gramu" inputmode="numeric" placeholder="1-15000" min="1" max="100000" title="Zadejte hmotnost konopí, které by mělo být vypěstováno" required disabled>&nbsp;gramů&nbsp;konopí
+</div>
+<div>
+<span class="obr4"> </span>
 </div>
 </li>
 <li class="z-p">
 <label>Pěstování konopí má být:</label>
-<button id="p-vlast" class="but-m w_100" type="button" title="Pěstovat budu pro sebe" disabled>pro&nbsp;vlastní potřebu</button>
-<button id="p-jineh" class="but-m w_100" type="button" title="Pěstovat budu pro někoho jiného" disabled>pro&nbsp;někoho jiného</button>
+<button id="p-vlast" class="but-m w_100 flex gap a_i" type="button" title="Pěstovat budu pro sebe" disabled>
+<span class="obr5"> </span>
+pro&nbsp;vlastní potřebu
+</button>
+<button id="p-jineh" class="but-m w_100 flex gap a_i" type="button" title="Pěstovat budu pro někoho jiného" disabled>
+<span class="obr6"> </span>
+pro&nbsp;někoho jiného
+</button>
 </li>
 <li class="z-o">
-<label>Kolik lidí se bude podílet na pěstování konopí:</label>
+<label>Kolik lidí se&nbsp;bude podílet na&nbsp;pěstování konopí:</label>
 <div class="box-lidi">
-<button id="jeden" class="but-m but-big" type="button" title="Pěstovat budu sám" disabled>1&#8239;člověk<span> budu pěstovat sám</span></button>
-<button id="dva" class="but-m but-big" type="button" title="Pěstovat budu s někým" disabled>2&#8239;lidé<span> budu pěstovat s&nbsp;někým</span></button>
-<button id="org" class="but-m but-big" type="button" title="Pěstovat  nás bude více než dva" disabled>3&#8239;a&#8239;více lidí<span> bude nás pěstovat víc</span></button>
+
+<button id="jeden" class="but-m but-big" type="button" title="Pěstovat budu sám" disabled>
+<span class="obr7"> </span>
+<span> budu pěstovat sám</span>
+</button>
+
+<button id="dva" class="but-m but-big" type="button" title="Pěstovat budu s někým" disabled>
+<span class="obr8"> </span>
+<span> budu pěstovat s&nbsp;někým</span>
+</button>
+
+<button id="org" class="but-m but-big" type="button" title="Pěstovat  nás bude více než dva" disabled>
+<span class="obr9"> </span>
+<span> bude nás pěstovat víc</span>
+</button>
 </div>
 </li>
 <li class="z-b">
 <div class="flex a_i j_c">
-<button id="kalkuluj" class="spust" type="submit" title="Spočítat výši trestu" disabled><img src="../svg/kalkulacka.svg" width="40" height="60" alt="kalkulačka" loading="lazy"><span id="b-text">Spočítat výši trestu</span></button>
+<button id="kalkuluj" class="spust" type="submit" title="Spočítej mi to" disabled>
+<span class="obr10"> </span>
+<span id="b-text">Spočítat výši trestu</span></button>
 </div>
 </li>
 </ul>
@@ -191,7 +224,7 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 <div class="l-p">
 <ol class="bb1 b-ros">
 <li class="rost"><div class="r-1"> </div></li>
-<li class="vys">Výška rostlin: 0-20&#8239;cm</li>
+<li class="vys">Výška rostlin: <span class="di">0-20&#8239;cm</span></li>
 <li class="hm">Hmotnost rostlin: <span id="v20">?</span>&#8239;gramů</li>
 <li class="tre">Hrozí trest odnětí svobody: <span id="p20" class="v-trest">?</span></li>
 <li class="ust">Podle ustanovení: <span id="Up20">?</span></li>
@@ -200,7 +233,7 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 
 <ol class="bb1 b-ros">
 <li class="rost"><div class="r-2"> </div></li>
-<li class="vys">Výška rostlin: 20-40&#8239;cm</li>
+<li class="vys">Výška rostlin: <span class="di">20-40&#8239;cm</span></li>
 <li class="hm">Hmotnost rostlin: <span id="v40">?</span>&#8239;gramů</li>
 <li class="tre">Hrozí trest odnětí svobody: <span id="p40" class="v-trest">?</span></li>
 <li class="ust">Podle ustanovení: <span id="Up40">?</span></li>
@@ -209,7 +242,7 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 
 <ol class="b-ros">
 <li class="rost"><div class="r-3"> </div></li>
-<li class="vys">Výška rostlin: 40-80&#8239;cm</li>
+<li class="vys">Výška rostlin: <span class="di">40-80&#8239;cm</span></li>
 <li class="hm">Hmotnost rostlin: <span id="v80">?</span>&#8239;gramů</li>
 <li class="tre">Hrozí trest odnětí svobody: <span id="p80" class="v-trest">?</span></li>
 <li class="ust">Podle ustanovení: <span id="Up80">?</span></li>
@@ -221,7 +254,7 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 <div class="l-p">
 <ol class="bb2 b-ros">
 <li class="rost"><div class="r-4"> </div></li>
-<li class="vys">Výška rostlin: 80-120&#8239;cm</li>
+<li class="vys">Výška rostlin: <span class="di">80-120&#8239;cm</span></li>
 <li class="hm">Hmotnost rostlin: <span id="v120">?</span>&#8239;gramů</li>
 <li class="tre">Hrozí trest odnětí svobody: <span id="p120" class="v-trest">?</span></li>
 <li class="ust">Podle ustanovení: <span id="Up120">?</span></li>
@@ -229,7 +262,7 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 </ol>
 <ol class="b-ros">
 <li class="rost"><div class="r-5"> </div></li>
-<li class="vys">Výška rostlin: 120-160&#8239;cm</li>
+<li class="vys">Výška rostlin: <span class="di">120-160&#8239;cm</span></li>
 <li class="hm">Hmotnost rostlin: <span id="v160">?</span>&#8239;gramů</li>
 <li class="tre">Hrozí trest odnětí svobody: <span id="p160" class="v-trest">?</span></li>
 <li class="ust">Podle ustanovení: <span id="Up160">?</span></li>
@@ -241,7 +274,7 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 <div class="l-p">
 <ol class="b-ros">
 <li class="rost"><div class="r-6"> </div></li>
-<li class="vys">Výška rostlin: 160-180&#8239;cm</li>
+<li class="vys">Výška rostlin: <span class="di">160-180&#8239;cm</span></li>
 <li class="hm">Hmotnost rostlin: <span id="v180">?</span>&#8239;gramů</li>
 <li class="tre">Hrozí trest odnětí svobody: <span id="p180" class="v-trest">?</span></li>
 <li class="ust">Podle ustanovení: <span id="Up180">?</span></li>
@@ -253,7 +286,7 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 <div class="l-p">
 <ol class="b-ros">
 <li class="rost"><div class="r-7"> </div></li>
-<li class="vys">Výška rostlin: 180-200&#8239;cm</li>
+<li class="vys">Výška rostlin: <span class="di">180-200&#8239;cm</span></li>
 <li class="hm">Hmotnost rostlin: <span id="v200">?</span>&#8239;gramů</li>
 <li class="tre">Hrozí trest odnětí svobody: <span id="p200" class="v-trest">?</span></li>
 <li class="ust">Podle ustanovení: <span id="Up200">?</span></li>
@@ -287,7 +320,7 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 <div class="l-p">
 <ol class="b-ros">
 <li class="rost"><div class="r-6"> </div></li>
-<li class="vys">Výška rostlin: 160-180&#8239;cm</li>
+<li class="vys">Výška rostlin: <span class="di">160-180&#8239;cm</span></li>
 <li class="hm">Hmotnost rostlin: <span id="v180skliz">?</span>&#8239;gramů</li>
 <li class="tre">Hrozí trest odnětí svobody: <span id="skliz180" class="v-trest">?</span></li>
 <li class="ust">Podle ustanovení: <span id="U180skliz">?</span></li>
@@ -299,7 +332,7 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 <div class="l-p">
 <ol class="b-ros">
 <li class="rost"><div class="r-7"> </div></li>
-<li class="vys">Výška rostlin: 180-200&#8239;cm</li>
+<li class="vys">Výška rostlin: <span class="di">180-200&#8239;cm</span></li>
 <li class="hm">Hmotnost rostlin: <span id="v200skliz">?</span>&#8239;gramů</li>
 <li class="tre">Hrozí trest odnětí svobody: <span id="skliz200" class="v-trest">?</span></li>
 <li class="ust">Podle ustanovení: <span id="U200skliz">?</span></li>
@@ -333,7 +366,7 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 <div class="l-p">
 <ol class="b-ros">
 <li class="rost"><div class="r-6"> </div></li>
-<li class="vys">Výška rostlin: 160-180&#8239;cm</li>
+<li class="vys">Výška rostlin: <span class="di">160-180&#8239;cm</span></li>
 <li class="hm">Hmotnost rostlin: <span id="v180sklad">?</span>&#8239;gramů</li>
 <li class="tre">Hrozí trest odnětí svobody: <span id="sklad180" class="v-trest">?</span></li>
 <li class="ust">Podle ustanovení: <span id="Usklad180">?</span></li>
@@ -345,7 +378,7 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 <div class="l-p">
 <ol class="b-ros">
 <li class="rost"><div class="r-7"> </div></li>
-<li class="vys">Výška rostlin: 180-200&#8239;cm</li>
+<li class="vys">Výška rostlin: <span class="di">180-200&#8239;cm</span></li>
 <li class="hm">Hmotnost rostlin: <span id="v200sklad">?</span>&#8239;gramů</li>
 <li class="tre">Hrozí trest odnětí svobody: <span id="sklad200" class="v-trest">?</span></li>
 <li class="ust">Podle ustanovení: <span id="Usklad200">?</span></li>
@@ -403,13 +436,16 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 </div>
 
 <dialog id="d-kytek">
-<div id="h_hm" class="dia_hlavicka">
+<div id="h_hm"></div>
+<div class="dia_hlavicka">
 <div class="in px50"> </div>
 <p class="hla_p">Informace</p>
 </div>
 <section class="flex f_c t_c a_i">
+<span class="obr4"> </span>
 <h3>Hmotnost konopí jedné rostliny</h3>
 <p>Níže jsou uvedeny tabulky hmotnosti konopí jedné rostliny, podle způsobu pěstování. Tabulky jsou vytvořeny podle judikátů soudů ve&nbsp;skutečných případech.</p>
+<span class="obr1"> </span>
 <div class="box-table">
 <table>
 <caption><p class="p-h4">Hmotnost konopí při&nbsp;amatérském způsobu pěstování</p></caption>
@@ -456,6 +492,7 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 </tbody>
 </table>
 </div>
+<span class="obr2"> </span>
 <div class="box-table">
 <table>
 <caption><p class="p-h4">Hmotnost konopí při&nbsp;profesionálním způsobu pěstování</p></caption>
@@ -512,15 +549,17 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 </dialog>
 
 <dialog id="d-zpusob">
-
-<div id="h_zp" class="dia_hlavicka">
+<div id="h_zp"></div>
+<div class="dia_hlavicka">
 <div class="in px50"> </div>
 <p class="hla_p">Informace</p>
 </div>
 <section class="flex f_c t_c a_i ">
 <h3>Způsob pěstování rostlin konopí</h3>
+<span class="obr1"> </span>
 <p class="p-h4">Amatérský</p>
 <p>Způsob pěstování konopí amatérů, kteří neumí pěstovat konopí na&nbsp;profesionální úrovni. Nepoužívají speciální metody střihu rostliny, hnojení, zavlažování, vzduchotechniku, tepelné techniky, světelné techniky a&nbsp;podobně.</p>
+<span class="obr2"> </span>
 <p class="p-h4">Profesionální</p>
 <p>Způsob pěstování konopí profesionálů, kteří&nbsp;umí pěstovat rostliny konopí speciálními metodami střihu, zavlažováním, hnojením, udžování tepelných podmínek, udržování světelných podmínek a&nbsp;dalšími profesionálními postupy pro&nbsp;maximalizaci růstu rostliny.</p>
 <div id="b_zp"> </div>
@@ -531,7 +570,8 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 </dialog>
 
 <dialog id="d-jinak">
-<div id="h_kl" class="dia_hlavicka">
+<div id="h_kl"></div>
+<div class="dia_hlavicka">
 <div class="in px50"> </div>
 <p class="hla_p">Informace</p>
 </div>
@@ -552,10 +592,12 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 <p>naplnit zákonné znaky trestného činu Nedovolené výroby a&nbsp;jiného nakládání s&nbsp;omamnými a&nbsp;psychotropními látkami a&nbsp;s&nbsp;jedy podle &sect;283&#8239;Trestního zákoníku.</p>
 </div>
 <div id="zm-jine" class="flex f_c t_c a_i">
+<div class="obr6"> </div>
 <p class="p-h4">Pěstování nebo skladování konopí pro&nbsp;jiného</p>
 <p>Pěstování nebo skladování konopí pro&nbsp;někoho jiného je&nbsp;trestným činem v&nbsp;jakémkoli, tedy&nbsp;i&nbsp;malém množství. Takovéto jednání je&nbsp;možné považovat za&nbsp;přechovávání omamné látky pro&nbsp;jiného a&nbsp;je&nbsp;na&nbsp;místě ho&nbsp;posoudit jako trestný čin Nedovolená výroba a&nbsp;jiné nakládání s&nbsp;omamnými a&nbsp;psychotropními látkami a&nbsp;s&nbsp;jedy podle &sect;283&#8239;Trestního zákoníku.</p>
 </div>
 <div id="zm-org" class="flex f_c t_c a_i">
+<div class="obr9"> </div>
 <p class="p-h4">Organizovaná skupina</p>
 <p><strong>Pro&nbsp;účast na&nbsp;organizované skupině je&nbsp;potřeba spolupráce nejméně tří&nbsp;lidí</strong>. Není&nbsp;však nutné, aby&nbsp;byli všichni zúčastnění lidé ztotožněni, nebo aby&nbsp;se všichni účastnili hlavní činnosti anebo ji&nbsp;znali. Postačuje dílčí jednání i&nbsp;méně závažného charakteru, které&nbsp;ale v&nbsp;rámci plánovitosti a&nbsp;koordinovanosti organizované skupiny zajišťuje dosažení cíle.</p>
 <p>Z&nbsp;důvodu organizované skupiny překvalifikováno na&nbsp;&sect;283 odstavec&#8239;2 Trestního zákoníku.</p>
@@ -572,7 +614,7 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 <div class="logo px50"> </div>
 <p class="hla_p">Pěstování konopí a&nbsp;trest</p>
 </div>
-<div>
+<div class="bg-whi">
 <h3><span class="vse_velkym">Čekejte</span> prosím&nbsp;…</h3>
 <p class="t_c">Probíhá kalkulace</p>
 <div class="flex j_c">
@@ -607,6 +649,6 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 </div>
 <div class="d_pata h3r"> </div>
 </dialog>
-<script src="../script/kalkulator.js?v=3" async></script>
+<script src="../script/kalkulator.js?v=4" async></script>
 </body>
 </html>

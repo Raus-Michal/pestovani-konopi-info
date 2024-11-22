@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" width="2200" height="200" viewBox="0 0 2200 200" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" stroke="#00336C" fill="none" preserveAspectRatio="xMidYMid meet">
+<defs>
+<filter id="fil" style="color-interpolation-filters:sRGB;" x="-0.024" y="-0.24" width="1.04" height="1.4">
+<feGaussianBlur result="result1" in="SourceAlpha" stdDeviation="2.8" />
+<feSpecularLighting result="result0" specularExponent="200" specularConstant="0.5" surfaceScale="1.5">
+<feDistantLight azimuth="225" elevation="24" />
+</feSpecularLighting>
+<feComposite result="result6" operator="in" in2="SourceAlpha" />
+<feMorphology radius="5" operator="dilate" />
+<feGaussianBlur result="result11" stdDeviation="6" />
+<feDiffuseLighting surfaceScale="2" result="result3" diffuseConstant="2" in="result1">
+<feDistantLight elevation="25" azimuth="225" />
+</feDiffuseLighting>
+<feBlend result="result7" mode="multiply" in="result3" in2="SourceGraphic" />
+<feComposite in="result7" operator="in" in2="SourceAlpha" result="result91" />
+<feBlend result="result9" mode="lighten" in="result6" in2="result91" />
+<feComposite in="result11" in2="result9" />
+</filter>
+</defs>
+
+<!-- Info -->
+<circle fill="none" cx="100" cy="100" r="90" />
+<path d="m 67.5,76.5 65,0 v 17 h -19.5 v 51.5 l 19.5,0 v 17 l -65,0 0,-17 19.5,0 0,-51.5 -19.5,0 z" fill="#00336C" />
+<circle cx="100" cy="46.5" r="17.5" fill="#00336C" />
+
+<!-- Amatér -->
+<g  transform="translate(200,0)">
+<path d="m 109,68 1,79 h 56 L 163,68 Z" fill="#00336c" />
+<path d="m 109,115 -52,-44 5,-6 47,30" fill="#00336c" />
+<ellipse cx="166" cy="104" rx="22" ry="23" />
+<path d="M 47,128 H 11 l 4,49 14,13 14,-13 z" fill="#00336c" />
+<path d="M 29,125 V 24" stroke-width="10" />
+</g>
+
+<!-- Profesionál -->
+<g  transform="translate(400,0)">
+<!-- proud vzduchu od větráku -->
+<g stroke="#FFACCF" stroke-dasharray="10">
+<path d="m 8,95 c 3,-5 7,-9 12,-12 5,-2 12,-2 17,1 4,2 7,5 11,7 4,3 7,5 12,6 4,1 9,-1 13,-2 4,-2 8,-3 13,-3 1,0 1,0 1,0" />
+<path d="m 8,120 c 3,-5 7,-9 12,-12 5,-2 12,-2 17,1 4,2 7,5 11,7 4,3 7,5 12,6 4,1 9,-1 13,-2 4,-2 8,-3 13,-3 1,0 1,0 1,0" />
+<path d="m 8,145 c 3,-5 7,-9 12,-12 5,-2 12,-2 17,1 4,2 7,5 11,7 4,3 7,5 12,6 4,1 9,-1 13,-2 4,-2 8,-3 13,-3 1,0 1,0 1,0" />
+<path d="m 8,170 c 3,-5 7,-9 12,-12 5,-2 12,-2 17,1 4,2 7,5 11,7 4,3 7,5 12,6 4,1 9,-1 13,-2 4,-2 8,-3 13,-3 1,0 1,0 1,0" />
+</g>
+<!-- větrák -->
+<circle cx="135" cy="135" r="57" />
+<circle cx="135" cy="135" r="9" />
+<!-- lopatky větráku -->
+<path d="m 132,125 c -1,-1 -1,-2 -1,-3 -2,-5 -3,-10 -5,-15 -1,-2 -3,-5 -5,-7 -2,-2 -4,-3 -7,-4 -2,-1 -5,0 -7,1 -2,1 -4,2 -6,4 -3,4 -4,9 -4,13 0,7 3,13 8,17 5,5 11,7 18,7" />
+<path d="m 137,146 c 0,1 1,2 1,3 2,5 3,10 5,15 1,2 3,5 5,7 2,2 4,3 7,4 2,1 5,0 7,-1 2,-1 4,-2 6,-4 3,-4 4,-9 4,-13 0,-7 -3,-13 -8,-17 -5,-5 -11,-7 -18,-7" />
+<!-- světlo -->
+<rect width="180" height="15" x="9" y="7" fill="#00336C" />
+<!-- paprsky -->
+<g stroke="#FFC498" stroke-dasharray="10">
+<path d="M 20,30 4,70" />
+<path d="M 35,30 35,70" />
+<path d="M 65,30 65,70" />
+<path d="M 95,30 95,70" />
+<path d="M 125,30 125,70" />
+<path d="M 155,30 155,70" />
+<path d="m 175,30 14,41" />
+</g>
+</g>
+
+<!-- Kytka -->
+<g  transform="translate(600,0)">
+<!-- květináč -->
+<path d="m 51,118 27,72 H 130 l 27,-72 z" fill="#00336C" />
+<g stroke="rgb(0,158,107)">
+<!-- kytka -->
+<path d="M 101,117 C 102,99 101,12 101,12" />
+<path d="m 101,101 c 6,-3 21,-8 21,-8 l 7,-12" />
+<path d="m 122,93 12,0" />
+<path d="M 101,101 80,93 77,85" />
+<path d="M 80,93 72,95" />
+<path d="m 74,57 28,13 26,-14" />
+<path d="M 101,39 84,30" />
+<path d="m 101,39 14,-9" />
+</g>
+<!-- šišky -->
+<g stroke="rgb(0,103,105)">
+<ellipse cx="120" cy="52" rx="1" ry="5" />
+<ellipse cx="82" cy="53" rx="1" ry="5" />
+<ellipse cx="101" cy="14" rx="1" ry="5" />
+<ellipse cx="117" cy="88" rx="1" ry="5" />
+<ellipse cx="87" cy="88" rx="1" ry="5" />
+<ellipse cx="110" cy="28" rx="1" ry="3" />
+<ellipse cx="92" cy="29" rx="1" ry="3" />
+</g>
+</g>
+
+<!-- Váha -->
+<g  transform="translate(800,0)">
+<circle cx="102" cy="61" r="3" />
+<path d="M 102,70 V 157" />
+<path d="M 102,52 102,37" />
+<circle cx="102" cy="28" r="3" />
+<path d="m 90,61 -50,0" />
+<circle cx="29" cy="61" r="3" />
+<path d="m 34,68 15,24" />
+<path fill="#00336C" d="m 50,98 a 21,21 0 0 1 -10,18 21,21 0 0 1 -21,0 A 21,21 0 0 1 7.5,98 Z" />
+<path d="M 24,68 9,92" />
+<circle cx="174" cy="61" r="3" />
+<path d="M 180,68 193,92" />
+<path fill="#00336C" d="m 194,98 a 21,21 0 0 1 -10,18 21,21 0 0 1 -21,0 21,21 0 0 1 -10,-18 z" />
+<path d="M 168,68 154,92" />
+<path d="m 163,61 -50,0" />
+<path fill="#00336C" d="m 142,-176 a 40,14 0 0 1 -20,12 40,14 0 0 1 -40,0 40,14 0 0 1 -20,-12 z" transform="scale(1,-1)" />
+</g>
+
+<!-- Pro vlastní potřebu -->
+<g  transform="translate(1000,0)">
+<g fill="#00336C" stroke-width="0.1">
+<circle cx="47" cy="79" r="17" />
+<path d="m 13,140 c -2,-63 66,-69 69,0" />
+</g>
+<path d="M 178,98 98,98 121,84" stroke="black" stroke-width="10" />
+<path d="M 98,98 121,113" stroke="black" stroke-width="10" />
+</g>
+
+<!-- Pro někoho jiného -->
+<g  transform="translate(1200,0)">
+<g fill="#00336C" stroke-width="0.1">
+<circle cx="47" cy="79" r="17" />
+<path d="m 13,140 c -2,-63 66,-69 69,0" />
+</g>
+<path d="m 96,98 80,0 -23,-14" stroke="black" stroke-width="10" />
+<path d="M 176,98 153,113" stroke="black" stroke-width="10" />
+</g>
+
+<!-- Jeden -->
+<g  transform="translate(1400,0)">
+<g fill="#00336C" stroke-width="0.1">
+<circle cx="99" cy="79" r="17" />
+<path d="m 65,140 c -2,-63 66,-69 69,0" />
+</g>
+</g>
+
+<!-- Dva -->
+<g  transform="translate(1600,0)">
+<g fill="#00336C" stroke-width="0.1">
+<circle cx="47" cy="79" r="17" />
+<path d="m 13,140 c -2,-63 66,-69 69,0" />
+</g>
+<g transform="translate(100,0)"  fill="#00336C" stroke-width="0.1">
+<circle cx="47" cy="79" r="17" />
+<path d="m 13,140 c -2,-63 66,-69 69,0" />
+</g>
+</g>
+
+<!-- Tři a více -->
+<g  transform="translate(1800,0)">
+<g fill="#00336C" stroke-width="0.1">
+<circle cx="44" cy="129" r="20" />
+<path d="m 10,190 c -2,-55 65.8,-60 69,0" />
+<circle cx="155" cy="129" r="20" />
+<path d="m 122,190 c -2,-55 65.8,-60 69,0" />
+<circle cx="100" cy="31" r="20" />
+<path d="m 65,92 c -2,-55 65.8,-60 69,0" />
+</g>
+<g stroke="black" fill="rgb(255,172,207)" stroke-width="10">
+<circle cx="100" cy="110" r="30" />
+<line x1="88" y1="110" x2="112" y2="110" />
+<line x1="100" y1="98" x2="100" y2="122" />
+</g>
+</g>
+
+<g  transform="translate(2000,0)">
+<rect width="87" height="145" x="56" y="27" fill="#00336c" stroke-width="3" />
+<rect width="67" height="30" x="66" y="38" fill="#ffaccf" stroke-width="3" />
+
+<g style="filter:url(#fil)" fill="rgb(0,158,107)" stroke="rgb(0,158,107)" stroke-width="3">
+<rect width="12" height="13" x="69" y="83" />
+<rect width="12" height="13" x="94" y="83" />
+<rect width="12" height="13" x="119" y="83" />
+<rect width="12" height="13" x="69" y="103" />
+<rect width="12" height="13" x="94" y="103" />
+<rect width="12" height="13" x="119" y="103" />
+<rect width="12" height="33" x="69" y="124" />
+<rect width="12" height="13" x="94" y="124" />
+<rect width="12" height="13" x="119" y="124" />
+<rect width="12" height="13" x="94" y="145" />
+<rect width="12" height="13" x="119" y="145" />
+</g>
+</g>
+</svg>

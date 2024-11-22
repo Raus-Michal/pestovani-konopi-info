@@ -10,7 +10,7 @@ skript.parentNode.insertBefore(styl,skript);
 });}};
 
 stylAsyn.nacti("../css/css.css?v=1"); // spuštění funkce k načtení ccs asynchronně
-stylAsyn.nacti("../css/kalkulator.css?v=2");  // spuštění funkce k načtení ccs asynchronně
+stylAsyn.nacti("../css/kalkulator.css?v=3");  // spuštění funkce k načtení ccs asynchronně
 
 const sdilet={_idFB:"sdil-fb",_idTW:"sdil-tw",SIRKA:600,VYSKA:600,min_VYSKA:800,min_SIRKA:800,
 async prepis(){
@@ -52,25 +52,25 @@ kytek.value=""; // vynuluje formulář
 
 let rozhodni=null;
 
-if(zpusob.pestovani=="amater"&&kytek.value!="")
+if(zpusob.pestovani==="amater"&&kytek.value!=="")
 {
 rozhodni=this.kyt_amater;
 }
-else if (zpusob.pestovani=="profi"&&kytek.value!="")
+else if (zpusob.pestovani==="profi"&&kytek.value!=="")
 {
 rozhodni=this.kyt_profik;
 }
 
-if((zadani>250)&&(rozhodni==this.kyt_amater))
+if((zadani>250)&&(rozhodni===this.kyt_amater))
 {
 kytek.value="250";
 }
-else if((zadani>25)&&(rozhodni==this.kyt_profik))
+else if((zadani>25)&&(rozhodni===this.kyt_profik))
 {
 kytek.value="25";
 }
 
-if(kytek.value!=""&&rozhodni!=null)
+if(kytek.value!==""&&rozhodni!==null)
 {
 gramu.value=kytek.value*rozhodni;
 }
@@ -80,7 +80,7 @@ if(gramu.value>15000)
 gramu.value="15000";
 }
 
-if(kytek.value=="")
+if(kytek.value==="")
 {
 gramu.value="";
 }},
@@ -101,21 +101,22 @@ gramu.value="15000";
 }
 let rozhodni=null;
 
-if(zpusob.pestovani=="amater"&&gramu.value!="")
+if(zpusob.pestovani==="amater"&&gramu.value!=="")
 {
 rozhodni=this.kyt_amater;
 }
-else if(zpusob.pestovani=="profi"&&gramu.value!="")
+else if(zpusob.pestovani==="profi"&&gramu.value!=="")
 {
 rozhodni=this.kyt_profik;
 }
-if(gramu.value!=""&&rozhodni!=null)
+if(gramu.value!==""&&rozhodni!==null)
 {
+
 kytek.value=gramu.value/rozhodni;
 
 let pricist=kytek.value-parseInt(kytek.value);
 
-if(pricist!=0)
+if(pricist!==0)
 {
 kytek.value=parseInt(kytek.value)+1;
 }
@@ -124,11 +125,11 @@ else
 kytek.value=parseInt(kytek.value);
 }
 
-if(kytek.value=="0")
+if(kytek.value==="0")
 {
 kytek.value=1;
 }}
-else if(gramu.value=="")
+else if(gramu.value==="")
 {
 kytek.value="";
 }},
@@ -152,7 +153,7 @@ document.getElementById("kytek").addEventListener("input",this.kytek.bind(this))
 
 const zpusob={
 zakladni:"white",
-barva:"rgba(0,158,107,0.5)",
+barva:"rgba(0,158,107,0.3)",
 pestovani:null,
 potreba:null,
 skupina:null,
@@ -160,12 +161,14 @@ skupina:null,
 am(){
 document.getElementById("amter").style.background=this.barva;
 document.getElementById("profi").style.background=this.zakladni;
+document.getElementById("kytek").placeholder="1-250"; // upraví množství možného zadání kytek pro amatérský způsob pěstování
 this.pestovani="amater";
 prepocet.gramu(); // provede přepočet gramů
 },
 pro(){
 document.getElementById("amter").style.background=this.zakladni;
 document.getElementById("profi").style.background=this.barva;
+document.getElementById("kytek").placeholder="1-25"; // upraví množství možného zadání kytek pro profesionální způsob pěstování
 this.pestovani="profi";
 prepocet.gramu();
 },
@@ -220,16 +223,16 @@ document.getElementById("org").addEventListener("click",this.org.bind(this));
 
 const dia={
 okno(hodnota,dialog,button=null){
-if(hodnota=="on")
+if(hodnota==="on")
 {
 document.getElementById(dialog).showModal();
 }
-else if(hodnota=="off")
+else if(hodnota==="off")
 {
 document.getElementById(dialog).close();
 return; // uzavře dialogové okno a ukončí funkci
 }
-if(button!=null)
+if(button!==null)
 {
 setTimeout(()=>{
 document.getElementById(button).focus(); // budede fokus na button, podkud bylo zasláno jeho ID
@@ -241,33 +244,33 @@ document.getElementById(button).focus(); // budede fokus na button, podkud bylo 
 let s_up=""; // proměnná do které bude uloženo ID kotvy HTML prvku k provedení ScroolTo, horní prvek dialogového okna
 let s_down=""; // proměnná do které bude uloženo ID kotvy HTML prvku k provedení ScroolTo, spodní prvek dialogového okna
 
-if(dialog=="d-jinak")
+if(dialog==="d-jinak")
 {
 // pokud bude otevřeno dialogové okno:Změna právní kvalifikace
 s_up="h_kl"; // id kotvy pro scrool nahoru dialogového okna
 s_down="b_kl"; //  id kotvy pro scrool dospodu dialogového okna
 }
-else if(dialog=="d-kytek")
+else if(dialog==="d-kytek")
 {
 // pokud bude otevřeno dialogové okno:Hmotnost konopí jedné rostliny
 s_up="h_hm"; // id kotvy pro scrool nahoru dialogového okna
 s_down="b_hm"; //  id kotvy pro scrool dospodu dialogového okna
 }
-else if(dialog=="d-zpusob")
+else if(dialog==="d-zpusob")
 {
 //Způsob pěstování
 s_up="h_zp"; // id kotvy pro scrool nahoru dialogového okna
 s_down="b_zp"; //  id kotvy pro scrool dospodu dialogového okna
 }
 
-if(s_up!=""&&s_down!="")
+if(s_up!==""&&s_down!=="")
 {
 // pokud obě proměnné nabyli hodnot
 setTimeout(()=>{
-document.getElementById(s_down).scrollIntoView({behavior:'smooth'}); // nejprve provede scroll na kotvu, na konci dialogového okna
+document.getElementById(s_down).scrollIntoView({behavior:"smooth"}); // nejprve provede scroll na kotvu, na konci dialogového okna
 },250);
 setTimeout(()=>{
-document.getElementById(s_up).scrollIntoView({behavior:'smooth'}); // provede scroll na kotvu, začátek dialogového okna
+document.getElementById(s_up).scrollIntoView({behavior:"smooth"}); // provede scroll na kotvu, začátek dialogového okna
 },750);}
 
 },
@@ -291,7 +294,7 @@ document.getElementById(this.seznam[i]).disabled=false; // vypne disabled
 }
 };
 
-const zmena = {
+const zmena={
 videtPest:false,
 videtSklad:false,
 videtSkliz:false,
@@ -305,7 +308,7 @@ pSkliz2:false,
 
 vPest(){
 /* zviditelní bloky s buttony Překvalifikováno! */
-if(this.videtPest!=true)
+if(this.videtPest!==true)
 {
 let d1=this.bloky.length; // délka pole
 for(let i=0;i<d1;i++)
@@ -315,8 +318,7 @@ document.getElementById(this.bloky[i]).style.display="flex";
 this.videtPest=true;
 
 /* aktivace posluchačů k buttonům */
-
-if(this.pPestov!=true)
+if(this.pPestov!==true)
 {
 let d2=this.tlacitka.length;
 for(let i=0;i<d2;i++)
@@ -324,13 +326,13 @@ for(let i=0;i<d2;i++)
 document.getElementById(this.tlacitka[i]).addEventListener("click",()=>{dia.okno("on","d-jinak");});
 }
 document.getElementById("dia_jinak").addEventListener("click",()=>{dia.okno("off","d-jinak");});
-this.pPestov = true;
+this.pPestov=true;
 }
 }},
 
 NvPest(){
 /* zNEviditelní bloky s buttony Překvalifikováno! */
-if(this.videtPest==true)
+if(this.videtPest===true)
 {
 let d=this.bloky.length; // délka pole
 for(let i=0;i<d;i++)
@@ -343,24 +345,24 @@ this.videtPest=false;
 vSklad(delka){
 const ktery=["li-s1","li-s2"];
 document.getElementById(ktery[delka]).style.display="flex";
-if(delka=="0"&&this.pSklad1!=true)
+if(delka===0&&this.pSklad1!==true)
 {
 document.getElementById("bs1").addEventListener("click",()=>{dia.okno("on","d-jinak");});
 this.pSklad1=true;
 }
-else if(delka=="1"&&this.pSklad2!=true)
+else if(delka===1&&this.pSklad2!==true)
 {
 document.getElementById("bs2").addEventListener("click",()=>{dia.okno("on","d-jinak");});
 this.pSklad2=true;
 }
-if(this.videtSklad!=true)
+if(this.videtSklad!==true)
 {
 document.getElementById("dia_jinak").addEventListener("click",()=>{dia.okno("off","d-jinak");});
 }
 this.videtSklad=true;},
 
 NevSklad(){
-if(this.videtSklad==true)
+if(this.videtSklad===true)
 {
 const blok=["li-s1","li-s2"];
 d=blok.length;
@@ -375,22 +377,22 @@ vSkliz(blok){
 const ktery=["liSk1","liSk2"];
 document.getElementById(ktery[blok]).style.display="flex";
 
-if(blok=="0"&&this.pSkliz1!= true)
+if(blok===0&&this.pSkliz1!==true)
 {
 document.getElementById("bsk1").addEventListener("click",()=>{dia.okno("on","d-jinak");});
-this.pSkliz1 = true;
+this.pSkliz1=true;
 }
-else if(blok=="1"&&this.pSkliz2!=true)
+else if(blok===1&&this.pSkliz2!==true)
 {
 document.getElementById("bsk2").addEventListener("click",()=>{dia.okno("on","d-jinak");});
 this.pSkliz2=true;
 }
 
-if(this.videtSkliz!=true)
+if(this.videtSkliz!==true)
 {
 document.getElementById("dia_jinak").addEventListener("click",()=>{dia.okno("off","d-jinak");});
 }
-this.videtSkliz = true;
+this.videtSkliz=true;
 },
 NvSkli(){
 const blok=["liSk1","liSk2"];
@@ -403,17 +405,17 @@ this.videtSkliz=false;
 },
 
 vKlas(druh){
-if(druh=="zpusob")
+if(druh==="zpusob")
 {
 document.getElementById("zm-zpus").style.display="flex";
 }
 
-if(druh=="org")
+if(druh==="org")
 {
 document.getElementById("zm-org").style.display="flex";
 }
 
-if(druh=="jineho")
+if(druh==="jineho")
 {
 document.getElementById("zm-jine").style.display="flex";
 }},
@@ -448,11 +450,11 @@ document.getElementById(zmen[i]).innerHTML=fHodnota;}
 
 zpusob(){
 let zpusobP="";
-if(zpusob.pestovani=="amater")
+if(zpusob.pestovani==="amater")
 {
 zpusobP="Amatérský";
 }
-else if(zpusob.pestovani=="profi")
+else if(zpusob.pestovani==="profi")
 {
 zpusobP="Profesionální";
 }
@@ -469,7 +471,7 @@ if(zpusob.potreba=="moje")
 {
 pro="Vlastní potřebu";
 }
-else if(zpusob.potreba=="jineho")
+else if(zpusob.potreba==="jineho")
 {
 pro="Někoho jiného";
 }
@@ -483,20 +485,20 @@ document.getElementById(zmen[i]).innerHTML=pro;
 
 clenu(){
 let lidi="";
-if(zpusob.skupina=="jeden")
+if(zpusob.skupina==="jeden")
 {
 lidi="Pěstovat budu sám";
 }
-else if(zpusob.skupina=="dva")
+else if(zpusob.skupina==="dva")
 {
 lidi="Pěstovat budu s někým";
 }
-else if(zpusob.skupina=="org")
+else if(zpusob.skupina==="org")
 {
 lidi="Pěstovat budume tři, nebo nás bude více";
 }
 
-const zmen = ["lidi1","lidi2","lidi3"];
+const zmen=["lidi1","lidi2","lidi3"];
 d=zmen.length;
 for(let i=0;i<d;i++)
 {
@@ -509,11 +511,11 @@ vaha(){
 let Zkytek=parseInt(document.getElementById("kytek").value);
 let rust=null;
 
-if(zpusob.pestovani=="amater")
+if(zpusob.pestovani==="amater")
 {
 rust=this.amaterVaha;
 }
-else if(zpusob.pestovani=="profi")
+else if(zpusob.pestovani==="profi")
 {
 rust=this.profiVaha;
 }
@@ -542,7 +544,7 @@ const Spest=["p20","p40","p80","p120","p160","p180","p200"];
 const Upest=["Up20","Up40","Up80","Up120","Up160","Up180","Up200"];
 let par="";
 
-if((((parseInt(document.getElementById("kytek").value)<=25)&&(zpusob.pestovani=="amater"))||((parseInt(document.getElementById("kytek").value)<=15)&&(zpusob.pestovani=="profi")))&&(zpusob.potreba=="moje"))
+if((((parseInt(document.getElementById("kytek").value)<=25)&&(zpusob.pestovani==="amater"))||((parseInt(document.getElementById("kytek").value)<=15)&&(zpusob.pestovani==="profi")))&&(zpusob.potreba==="moje"))
 {
 let d1=Spest.length;
 for(let t=0;t<d1;t++)
@@ -555,17 +557,17 @@ par="přestupek";
 else if((this.odhadVaha[t]>this.limity[0])&&(this.odhadVaha[t]<=this.limity[1]))
 {
 document.getElementById(Spest[t]).innerHTML=this.p285[1];
-par=this.ust.p285+"1";
+par=`${this.ust.p285}1`;
 }
 else if((this.odhadVaha[t]>this.limity[1])&&(this.odhadVaha[t]<=this.limity[2]))
 {
 document.getElementById(Spest[t]).innerHTML=this.p285[2];
-par=this.ust.p285+"3";
+par=`${this.ust.p285}3`;
 }
 else if(this.odhadVaha[t]>this.limity[2])
 {
 document.getElementById(Spest[t]).innerHTML=this.p285[3];
-par=this.ust.p285+"4";
+par=`${this.ust.p285}4`;
 }
 document.getElementById(Upest[t]).innerHTML=par;
 }}
@@ -577,27 +579,27 @@ for(let t=0;t<d2;t++)
 {
 if((this.odhadVaha[t]<=this.limity[2])&&(this.odhadVaha[t]<=this.limity[3]))
 {
-if(zpusob.skupina!="org")
+if(zpusob.skupina!=="org")
 {
-document.getElementById(Spest[t]).innerHTML = this.p283[0];
-par=this.ust.p283+"1";
+document.getElementById(Spest[t]).innerHTML=this.p283[0];
+par=`${this.ust.p283}1`;
 }
 else
 {
 /* Pokud se jedná o roganizovanou skupinu */
 document.getElementById(Spest[t]).innerHTML=this.p283[1];
-par=this.ust.p283+"2";
+par=`${this.ust.p283}2`;
 zmena.vKlas("org");
 }}
 else if((this.odhadVaha[t]>this.limity[2])&&(this.odhadVaha[t]<this.limity[3]))
 {
 document.getElementById(Spest[t]).innerHTML=this.p283[1];
-par=this.ust.p283+"2";
+par=`${this.ust.p283}2`;
 }
 else if(this.odhadVaha[t]>=this.limity[3])
 {
 document.getElementById(Spest[t]).innerHTML=this.p283[2];
-par=this.ust.p283+"3";
+par=`${this.ust.p283}3`;
 }
 document.getElementById(Upest[t]).innerHTML=par;
 }
@@ -605,7 +607,7 @@ if(((parseInt(document.getElementById("kytek").value)>=25)&&(zpusob.pestovani=="
 {
 zmena.vKlas("zpusob");
 }
-if(zpusob.potreba=="jineho")
+if(zpusob.potreba==="jineho")
 {
 zmena.vKlas("jineho");
 }
@@ -615,7 +617,6 @@ zmena.vPest();
 
 sklizen(){
 /* VÝPOČET PRO SKLIZEŇ  */
-
 const Sskliz=["skliz180","skliz200"];
 const Uskliz=["U180skliz","U200skliz"];
 let del_ret=this.odhadVaha.length-2;
@@ -625,10 +626,10 @@ for(let sk=0;sk<d1;sk++)
 {
 if((this.odhadVaha[del_ret+sk]<=this.limity[2])&&(this.odhadVaha[del_ret+sk]<=this.limity[3]))
 {
-if(zpusob.skupina!="org")
+if(zpusob.skupina!=="org")
 {
 document.getElementById(Sskliz[sk]).innerHTML=this.p283[0];
-par=this.ust.p283+"1";
+par=`${this.ust.p283}1`;
 }
 else
 {
@@ -641,12 +642,12 @@ zmena.vKlas("org");
 else if((this.odhadVaha[del_ret+sk]>this.limity[2])&&(this.odhadVaha[del_ret+sk]<this.limity[3]))
 {
 document.getElementById(Sskliz[sk]).innerHTML=this.p283[1];
-par=this.ust.p283+"2";
+par=`${this.ust.p283}2`;
 }
 else if(this.odhadVaha[del_ret+sk]>=this.limity[3])
 {
 document.getElementById(Sskliz[sk]).innerHTML=this.p283[2];
-par=this.ust.p283+"3";
+par=`${this.ust.p283}3`;
 }
 document.getElementById(Uskliz[sk]).innerHTML=par;
 }
@@ -670,17 +671,17 @@ par="přestupek";
 else if((this.odhadVaha[del_ret+s]>this.limity[0])&&(this.odhadVaha[del_ret+s]<=this.limity[1]))
 {
 document.getElementById(Ssklad[s]).innerHTML=this.p284[1];
-par=this.ust.p284+"1";
+par=`${this.ust.p284}1`;
 }
 else if((this.odhadVaha[del_ret+s]>this.limity[1])&&(this.odhadVaha[del_ret+s]<=this.limity[2]))
 {
 document.getElementById(Ssklad[s]).innerHTML=this.p284[2];
-par=this.ust.p284+"3";
+par=`${this.ust.p284}3`;
 }
 else if(this.odhadVaha[del_ret+s]>this.limity[2])
 {
 document.getElementById(Ssklad[s]).innerHTML=this.p284[3];
-par=this.ust.p284+"4";
+par=`${this.ust.p284}4`;
 }
 document.getElementById(Usklad[s]).innerHTML=par;
 }
@@ -691,46 +692,46 @@ if(this.odhadVaha[this.odhadVaha.length-2]>=10000)
 {
 /* pozdní stádium */
 document.getElementById(Ssklad[0]).innerHTML=this.p283[2];
-document.getElementById(Usklad[0]).innerHTML=this.ust.p283+"3";
-zmena.vSklad("0");
+document.getElementById(Usklad[0]).innerHTML=`${this.ust.p283}3`;
+zmena.vSklad(0);
 }
 
 if(this.odhadVaha[this.odhadVaha.length-1]>=10000)
 {
 /* konečné stádium */
 document.getElementById(Ssklad[1]).innerHTML=this.p283[2];
-document.getElementById(Usklad[1]).innerHTML=this.ust.p283+"3";
-zmena.vSklad("1");
+document.getElementById(Usklad[1]).innerHTML=`${this.ust.p283}3`;
+zmena.vSklad(1);
 }
 
-if(zpusob.potreba=="jineho")
+if(zpusob.potreba==="jineho")
 {
 d2=Ssklad.length;
 for(let sk=0;sk<d2;sk++)
 {
 if((this.odhadVaha[del_ret+sk]<=this.limity[2])&&(this.odhadVaha[del_ret+sk]<=this.limity[3]))
 {
-if(zpusob.skupina!="org")
+if(zpusob.skupina!=="org")
 {
 document.getElementById(Ssklad[sk]).innerHTML=this.p283[0];
-par=this.ust.p283+"1";
+par=`${this.ust.p283}1`;
 }
 else
 {
 /* Pokud se jedná o oganizovanou skupinu */
 document.getElementById(Ssklad[sk]).innerHTML=this.p283[1];
-par=this.ust.p283+"2";
+par=`${this.ust.p283}2`;
 zmena.vKlas("org");
 }}
 else if((this.odhadVaha[del_ret+sk]>this.limity[2])&&(this.odhadVaha[del_ret+sk]<=this.limity[3]))
 {
 document.getElementById(Ssklad[sk]).innerHTML=this.p283[1];
-par=this.ust.p283+"2";
+par=`${this.ust.p283}2`;
 }
 else if(this.odhadVaha[del_ret+sk]>this.limity[3])
 {
 document.getElementById(Ssklad[sk]).innerHTML=this.p283[2];
-par=this.ust.p283+"3";
+par=`${this.ust.p283}3`;
 }
 document.getElementById(Usklad[sk]).innerHTML=par;
 zmena.vSklad(sk);
@@ -752,12 +753,12 @@ this.blurB();
 dia.okno("on","finish");
 
 setTimeout(()=>{
-document.getElementById('cir_1').beginElement(); // spustí animaci koleček
+document.getElementById("cir_1").beginElement(); // spustí animaci koleček
 },500);
 
 
 this.interval=setTimeout(()=>{
-document.getElementById('cir_1').beginElement();
+document.getElementById("cir_1").beginElement();
 },4500);
 
 document.getElementById("vysledek").style.display="block";
@@ -799,7 +800,7 @@ blokPocitej(){
 let text=`Spočítat znovu výši trestu za&nbsp;${this.opakovani}&#8239;s`;
 this.id_kalk.innerHTML=text;
 this.opakovani--;
-if(this.opakovani==-1)
+if(this.opakovani===-1)
 {
 clearInterval(this.blokInt);
 this.opakovani=5;
@@ -821,7 +822,7 @@ document.getElementById("vysledek").style.opacity=1;
 },rez2); // scrool na prvek a jeho zviditelnění
 
 setTimeout(()=>{
-if(document.getElementById("vysledek").offsetTop!=parseInt(window.visualViewport.pageTop))
+if(document.getElementById("vysledek").offsetTop!==parseInt(window.visualViewport.pageTop))
 {
 document.getElementById("vysledek").scrollIntoView({behavior:"smooth", block:"start"});
 }
@@ -832,7 +833,7 @@ document.getElementById("vysledek").scrollIntoView({behavior:"smooth", block:"st
 async function statistika(){
 // funkce odešle připočtení statistiky po interakci stránky s uživatelem
 
-const dataToSend='kalkulator'; // data, která budou zaslána
+const dataToSend="kalkulator"; // data, která budou zaslána
 
 // odesílá data
 const token=document.querySelector("meta[name='csrf-token']").getAttribute("content"); // načte token z meta tagu HTML
@@ -848,10 +849,10 @@ body:data  // data ve formátu klíč=hodnota
 })
 .then(response=>response.text())  // Očekáváme textovou odpověď
 .then(result=>{
-console.log('Výsledek:',result);
+console.log("Výsledek:",result);
 })
 .catch(error=>{
-console.error('Chyba při odesílání dat:',error);
+console.error("Chyba při odesílání dat:",error);
 });
 
 
