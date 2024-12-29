@@ -247,15 +247,15 @@ objekt.style.animationPlayState=r; // pustí animaci objektu
 },
 
 active(){
-visualViewport.addEventListener('scroll',this);
-visualViewport.addEventListener('resize',this);
-addEventListener('scroll',this);
+visualViewport.addEventListener('scroll',this,{passive:true});  // Pokud je event listener označen jako pasivní ({ passive: true }), znamená to, že prohlížeč ví, že event handler nebude volat preventDefault(). To umožňuje prohlížeči optimalizovat chování stránky, což může vést ke zvýšení výkonu, zejména při posouvání na dotykových zařízeních. Jinými slovy, pasivní event listener říká prohlížeči: "Nebudu měnit výchozí chování této události, můžeš ji tedy zpracovat okamžitě."
+visualViewport.addEventListener('resize',this,{passive:true}); // Pokud je event listener označen jako pasivní ({ passive: true }), znamená to, že prohlížeč ví, že event handler nebude volat preventDefault(). To umožňuje prohlížeči optimalizovat chování stránky, což může vést ke zvýšení výkonu, zejména při posouvání na dotykových zařízeních. Jinými slovy, pasivní event listener říká prohlížeči: "Nebudu měnit výchozí chování této události, můžeš ji tedy zpracovat okamžitě."
+addEventListener('scroll',this,{passive:true}); // Pokud je event listener označen jako pasivní ({ passive: true }), znamená to, že prohlížeč ví, že event handler nebude volat preventDefault(). To umožňuje prohlížeči optimalizovat chování stránky, což může vést ke zvýšení výkonu, zejména při posouvání na dotykových zařízeních. Jinými slovy, pasivní event listener říká prohlížeči: "Nebudu měnit výchozí chování této události, můžeš ji tedy zpracovat okamžitě."
 },
 
 deactive(){
-visualViewport.removeEventListener('scroll',this);
-visualViewport.removeEventListener('resize',this);
-removeEventListener('scroll',this);
+visualViewport.removeEventListener('scroll',this,{passive:true});
+visualViewport.removeEventListener('resize',this,{passive:true});
+removeEventListener('scroll',this,{passive:true});
 },
 
 zahajit(){
