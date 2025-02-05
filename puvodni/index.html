@@ -8,9 +8,9 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 <meta charset="utf-8">
 <meta name="csrf-token" content="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8'); ?>">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
-<link rel="stylesheet" href="css/kritic.css?v=2">
+<link rel="stylesheet" href="css/kritic.css?v=3">
 <noscript>
-<link rel="stylesheet" href="css/css.css?v=2">
+<link rel="stylesheet" href="css/css.css?v=3">
 </noscript>
 <link rel="preload" as="image" href="jpg/poz_m.png" media="(max-width:623px)">
 <link rel="preload" as="image" href="jpg/poz.png" media="(min-width:624px)">
@@ -24,12 +24,12 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:update_time" content="2024-11-10T18:00:00+01:00">
+<meta property="og:update_time" content="2025-02-04T18:00:00+01:00">
 <meta property="og:locale" content="cs_CZ">
 <meta property="og:site_name" content="Pěstování konopí a trest">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2023-02-07T18:00:00+1:00">
-<meta property="article:modified_time" content="2024-11-10T18:00:00+1:00">
+<meta property="article:modified_time" content="2025-02-04T18:00:00+1:00">
 <meta property="article:section" content="Pěstování konopí , Slizeň konopí , Skladování konopí , Množství gramů konopí , Postup policie">
 <meta property="article:tag" content="Pěstování konopí a trest">
 <meta property="og:url" content="https://www.pestovani-konopi.info">
@@ -82,7 +82,7 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 }
 },
 "datePublished": "2023-02-07",
-"dateModified": "2024-11-10"
+"dateModified": "2025-02-04"
 }
 </script>
 </head>
@@ -113,8 +113,8 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 <p><strong>Za&nbsp;pěstování konopí se&nbsp;v&nbsp;článku považuje: pěstování konopí s&nbsp;vyšší než&nbsp;zákonem dovolenou koncentrací látky&nbsp;<abbr>THC</abbr></strong> (delta-9-tetrahydrocannabinol) v&nbsp;České republice fyzickou osobou, která&nbsp;je trestně zodpovědná. Řečeno jinými slovy: <strong>pěstování konopí, které&nbsp;má vyšší obsah látky THC než 1&#8239;%</strong> a&nbsp;je pěstováno na&nbsp;území České republiky člověkem ve&nbsp;věku minimálně 15&#8239;let.</p>
 </div>
 <div class="sdilet">
-<a id="sdil-fb" class="a-sdil" href="https://www.facebook.com/sharer/sharer.php?u=https://www.pestovani-konopi.info" title="Sdílet Pěstování konopí a trest na FB" target="_blank" rel="external"><p>Sdílet na&nbsp;Facebooku</p><div class="img-s"><div class="is-2"> </div></div></a>
-<a id="sdil-tw" class="a-sdil2" href="https://twitter.com/intent/tweet?url=https://www.pestovani-konopi.info&text=" title="Sdílet Pěstování konopí a trest na Twitteru" target="_blank" rel="external"><p>Sdílet na&nbsp;Twitteru</p><div class="img-s"><div class="is-3"> </div></div></a>
+<a id="sdil-fb" class="a-sdil" href="https://www.facebook.com/sharer/sharer.php?u=https://www.pestovani-konopi.info" title="Sdílet Pěstování konopí a trest na FB" target="_blank" rel="nofollow noopener noreferrer"><p>Sdílet na&nbsp;Facebooku</p><div class="img-s"><div class="is-2"> </div></div></a>
+<a id="sdil-tw" class="a-sdil2" href="https://twitter.com/intent/tweet?url=https://www.pestovani-konopi.info&text=" title="Sdílet Pěstování konopí a trest na Twitteru" target="_blank" rel="nofollow noopener noreferrer"><p>Sdílet na&nbsp;Twitteru</p><div class="img-s"><div class="is-3"> </div></div></a>
 </div></div>
 <div class="blok_50">
 <div id="inf_uv1" class="blok_50-1">
@@ -252,7 +252,7 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 </section>
 
 <div class="menu_up">
-<a href="#obsah" title="Posun na obsah">
+<a href="#obsah" class="w_100_h_a" title="Posun na obsah">
 <svg class="w_100_h_a" width="20" height="10" viewBox="0 0 200 150" stroke="rgb(0,51,108)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none">
 <path d="M 50,35 100,13 150,35">
 <animate id="m_5" begin="m_4.end + 250ms" attributeName="stroke" from="rgb(0,51,108)" to="rgb(0,158,107)" dur="100ms" fill="freeze" calcMode="paced" />
@@ -267,7 +267,6 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 <animate id="m_2" begin="m_1.end" attributeName="stroke" from="rgb(0,158,107)" to="rgb(0,51,108)" dur="100ms" fill="freeze" calcMode="paced" />
 </path>
 </svg>
-<p class="m_0 w_100 t_c">Obsah</p>
 </a></div>
 
 <section id="trest-sklizen-konopi" class="flex f_c mb mar_t5m n-s">
@@ -568,43 +567,36 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 </article></main>
 <aside class="volne_misto">
 <div class="nav_aside"><ul>
-<li><a href="https://www.zakonyprolidi.cz/cs/2009-40?text=285#f3920761" title="&sect;285" target="_blank" rel="nofollow"><div class="box_a1">&sect;285</div>
+<li><a href="https://www.zakonyprolidi.cz/cs/2009-40?text=285#f3920761" class="neprepis_odkaz" title="&sect;285" target="_blank" rel="nofollow noopener noreferrer"><div class="box_a1">&sect;285</div>
 <div class="box_a2">Nedovolené pěstování rostlin obsahujících omamnou nebo psychotropní látku</div></a></li>
-<li><a href="https://www.zakonyprolidi.cz/cs/2009-40?text=284#f3920755" title="&sect;284" target="_blank" rel="nofollow"><div class="box_a1">&sect;284</div>
+<li><a href="https://www.zakonyprolidi.cz/cs/2009-40?text=284#f3920755" class="neprepis_odkaz" title="&sect;284" target="_blank" rel="nofollow noopener noreferrer"><div class="box_a1">&sect;284</div>
 <div class="box_a2">Přechovávání omamné a&nbsp;psychotropní látky a&nbsp;jedu</div></a></li>
-<li><a href="https://www.zakonyprolidi.cz/cs/2009-40?text=283#f3920735" title="&sect;283" target="_blank" rel="nofollow"><div class="box_a1">&sect;283</div>
+<li><a href="https://www.zakonyprolidi.cz/cs/2009-40?text=283#f3920735" class="neprepis_odkaz" title="&sect;283" target="_blank" rel="nofollow noopener noreferrer"><div class="box_a1">&sect;283</div>
 <div class="box_a2">Nedovolená výroba a&nbsp;jiné nakládání s&nbsp;omamnými a&nbsp;psychotropními látkami a&nbsp;s&nbsp;jedy</div></a></li>
-<li><a href="https://www.judikaty.info/cz/" title="Vyhledávač judikátů" target="_blank" rel="nofollow"><div class="box_a1">Jud</div><div class="box_a2">Vyhledávač judikátů soudů</div></a></li></ul></div>
+<li><a href="https://www.judikaty.info/cz/" title="Vyhledávač judikátů" target="_blank" rel="nofollow noopener noreferrer"><div class="box_a1">Jud</div><div class="box_a2">Vyhledávač judikátů soudů</div></a></li></ul></div>
 </aside>
 <aside class="volne_misto2">
 <div class="kon_odkazy">
 <div><a href="o-webu/" title="Informace o webu"><div class="is-1"> </div>Informace <wbr>o&nbsp;webové <wbr>stránce</a></div>
-<div><a href="https://www.facebook.com/pestovanikonopi/" title="FB Pěstování konopí" target="_blank" rel="nofollow"><div class="is-2"> </div>Facebook <wbr>Pěstování konopí</a></div>
-<div><a href="https://twitter.com/pestovanikonopi" title="Twitter Pěstování konopí" target="_blank" rel="nofollow"><div class="is-3"> </div>Twitter <wbr>Pěstování konopí</a></div>
-<div><a href="https://www.instagram.com/pestovanikonopi/" title="Instagram Pěstování konopí" target="_blank" rel="nofollow"><div class="is-4"> </div>Instagram <wbr>Pěstování konopí</a></div>
+<div><a href="https://www.facebook.com/pestovanikonopi/" title="FB Pěstování konopí" target="_blank" rel="nofollow noopener noreferrer"><div class="is-2"> </div>Facebook <wbr>Pěstování konopí</a></div>
+<div><a href="https://twitter.com/pestovanikonopi" title="Twitter Pěstování konopí" target="_blank" rel="nofollow noopener noreferrer"><div class="is-3"> </div>Twitter <wbr>Pěstování konopí</a></div>
+<div><a href="https://www.instagram.com/pestovanikonopi/" title="Instagram Pěstování konopí" target="_blank" rel="nofollow noopener noreferrer"><div class="is-4"> </div>Instagram <wbr>Pěstování konopí</a></div>
 </div>
 <div class="f-lamac">
 <div class="div_odkaz">
 <p>Partnerské stránky</p>
 <ul>
-<li><a href="https://www.boar-cz.info" title="Boar-cz - webové stavby" target="_blank" rel="follow">Boar-cz -&#8239;webové stránky výrobce webu</a></li>
-<li><a href="https://www.pestovani-konopi.cz" title="pestovani-konopi.cz" target="_blank" rel="follow">Pěstování konopí.cz - webové prostory k&nbsp;prodeji</a></li>
+<li><a href="https://www.boar-cz.info" title="Boar-cz - webové stavby" target="_blank" rel="nofollow noopener noreferrer">Boar-cz -&#8239;webové stránky výrobce webu</a></li>
+<li><a href="https://www.pestovani-konopi.cz" title="pestovani-konopi.cz" target="_blank" rel="nofollow noopener noreferrer">Pěstování konopí.cz - webové prostory k&nbsp;prodeji</a></li>
 </ul>
 </div>
 <div class="div_odkaz">
 <p>Přátelské stránky</p>
 <ul>
-<li><a href="https://www.youtube.com/shorts/z6COTQ6aCOs" title="Pěstování konopí - ukázka webu na Youtube" target="_blank" rel="nofollow">Pěstování konopí a&nbsp;trest -&nbsp;ukázka&nbsp;YouTube</a></li>
+<li><a href="https://www.youtube.com/shorts/z6COTQ6aCOs" title="Pěstování konopí - ukázka webu na Youtube" target="_blank" rel="nofollow noopener noreferrer">Pěstování konopí a&nbsp;trest -&nbsp;ukázka&nbsp;YouTube</a></li>
 </ul>
 </div>
-<div class="div_odkaz">
-<p>Kvalita webu</p>
-<ul>
-<li><a href="https://seo-servis.cz/source-zdrojovy-kod/16102639" title="Kvalita zdrojového kódu" target="_blank" rel="follow">Test kvality zdrojového kódu</a></li>
-<li><a href="https://pagespeed.web.dev/analysis/https-www-pestovani-konopi-info/58qf0eo4oz?form_factor=mobile" title="Výkon webu" target="_blank" rel="nofollow">Test výkonu webové stránky</a></li>
-<li><a href="https://www.seotestonline.cz/vysledek/63631-pestovani-konopi-info.html" title="Seo test webu" target="_blank" rel="follow">Seo test webové stránky</a></li>
-<li><a href="https://www.webwiki.com/pestovani-konopi.info" title="Hodnocení webu" target="_blank" rel="follow">Hodnocení webové stránky</a></li>
-</ul></div></div>
+</div>
 </aside>
 <footer class="paticka">
 <p>&copy;&#8239;2023 Boar-cz</p>
@@ -612,6 +604,6 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 <address class="kontakt"><p>Máte otázku k těmto webovým stránkám? <a href="kontakt/" title="Kontakt na provozovatele webu">Kontaktujte&nbsp;nás</a></p></address>
 </footer>
 </div>
-<script src="script/script.js?v=3" async></script>
+<script src="script/script.js?v=4" async></script>
 </body>
 </html>

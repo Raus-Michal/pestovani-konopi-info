@@ -1,4 +1,7 @@
-﻿const stylAsyn={
+﻿
+"use strict";
+
+const stylAsyn={
 nacti(url){ 
 /* Funkce načte Asynchroně CSS styly */
 const styl=document.createElement("link");
@@ -9,36 +12,44 @@ setTimeout(()=>{
 skript.parentNode.insertBefore(styl,skript);
 });}};
 
-stylAsyn.nacti("css/css.css?v=1"); // spuštění funkce k načtení ccs asynchronně
+stylAsyn.nacti("css/css.css?v=3"); // spuštění funkce k načtení ccs asynchronně
 
-
-const sdilet={_idFB:"sdil-fb",_idTW:"sdil-tw",SIRKA:600,VYSKA:600,min_VYSKA:800,min_SIRKA:800,
-async prepis(){
-let vyska=parseInt(window.screen.height); /* výška obrazovky */
-let sirka=parseInt(window.screen.width); /* šířka obrazovky */
-let z_leva=sirka/2-this.SIRKA/2;
-let z_hora=vyska/2-this.VYSKA/2;
-
-/* funkce přepíše HREF na tlačítkách sdílet Facebook a sdílet Twitter */
-if(document.getElementById(this._idFB)&&vyska>this.min_VYSKA&&sirka>this.min_SIRKA)
+class Sdilet{
+_idFB="sdil-fb";
+_idTW="sdil-tw";
+SIRKA=600;
+VYSKA=600;
+min_VYSKA=800;
+min_SIRKA=800;
+prepis(){
+const vyska=window.screen.height; // výška obrazovky
+const sirka=window.screen.width; // šířka obrazovky
+const z_leva=sirka/2-this.SIRKA/2;
+const z_hora=vyska/2-this.VYSKA/2;
+const updateLink=(id,windowName)=>
 {
-const hrefFB=document.getElementById(this._idFB).href; // načte stávající href odkazu
-document.getElementById(this._idFB).target=""; // target musí být prázdý jinak nové okno neotevře
-let textFB=`window.open('${hrefFB}','Sdílet na FB','width=${this.SIRKA},height=${this.VYSKA},left=${z_leva},top=${z_hora}');`; // příprava nového href
-document.getElementById(this._idFB).href=`javascript:${textFB}`; // dokončení nového href
+const el=document.getElementById(id);
+if(el&&vyska>this.min_VYSKA&&sirka>this.min_SIRKA)
+{
+const href=el.href; // načte stávající href odkazu
+el.removeAttribute("href"); // odstraní stávající href
+el.addEventListener("click",(e)=>{
+e.preventDefault(); // zabrání standardnímu chování odkazu
+window.open(href, windowName, `width=${this.SIRKA},height=${this.VYSKA},left=${z_leva},top=${z_hora},resizable=yes`); // otevře nové okno
+});
 }
-if(document.getElementById(this._idTW)&&vyska>this.min_VYSKA&&sirka>this.min_SIRKA)
-{
-const hrefTW=document.getElementById(this._idTW).href;
-document.getElementById(this._idTW).target=""; /* target musí být prázdý jinak nové okno neotevře */
-let textTW=`window.open('${hrefTW}','Sdílet na Twittru','width=${this.SIRKA},height=${this.VYSKA},left=${z_leva},top=${z_hora}');`;
-document.getElementById(this._idTW).href=`javascript:${textTW}`;
-}}};
+};
+// Přepíše HREF na tlačítkách sdílet Facebook a sdílet Twitter
+updateLink(this._idFB,'Sdílet na FB');
+updateLink(this._idTW,'Sdílet na Twitteru');
+}
+};
 
 const odkazy={
 t1:500,
 t2:1000,
-async uprav(){
+no_prepis_class_name:"neprepis_odkaz", // class třída, pokud jí A element bude mít, nepřepíše href
+uprav(){
 // funkce upravý veškeré odkazy a href, aby používali funkci Javascriptu srollTo
 let ob=document.querySelectorAll("a"); /* najde včechny tagy A na stránce a udělá z nich pole */
 let ob_s=ob.length;
@@ -46,18 +57,13 @@ for(let i=0;i<ob_s;i++)
 {
 let hr=ob[i].href; /* načte href objektu */
 let hr_p=hr.indexOf("#"); /* pozice # v řetězci */
-if(hr_p!=-1) /* pokud se pozice v řetězci == -1 , tak nebyl znak v řetězci nalezen */
+if(hr_p!==-1&&!ob[i].classList.contains(this.no_prepis_class_name)) /* pokud se pozice v řetězci == -1 , tak nebyl znak v řetězci nalezen && Podmínka pro vynechání specifických elementů s třídou class */
 {
 let poz_rez=hr_p+1; /* posune polohu řezu pro odkaz o jedno místo od # */
 let odkaz=ob[i].href.slice(poz_rez); /* vytvoří konečný odkaz ořezáním původního */
-if(odkaz!="") /* pokud nebude odkaz prázdným řetězcem */
+if(odkaz!=="") /* pokud nebude odkaz prázdným řetězcem */
 {
 ob[i].href=`javascript:odkazy.roluj('${odkaz}');`; /* upravý href každého odkazu na javascriptovou funkci */
-
-if(odkaz=="boar-cz")
-{
-ob[i].href=`javascript:odkazy.roluj('${odkaz}',1);`; /* výjimka pro tlačíto Boar-cz, které dělá krátký posun z menu do první části Article */
-}
 }}}},
 
 roluj(id,ne=0){
@@ -69,7 +75,6 @@ document.getElementById(id).scrollIntoView({behavior:"smooth",block:"start"}); /
 setTimeout(`document.getElementById('${id}').scrollIntoView({behavior:'smooth',block:'start'});`,this.t1); /* za 500ms provede opět scrool na objekt */
 setTimeout(`an_obj.active();an_obj.handleEvent();`,this.t2); /* za 1s opět zapne posluchač pro animace */
 }};
-
 
 
 const an_obj={
@@ -142,7 +147,7 @@ console.error('Chyba při odesílání dat:',error);
 handleEvent(){
 
 this.statistika(); // vede statistiku o návštěvnosti - odesláním dat
-d=this.id.length; // délka pole
+let d=this.id.length; // délka pole
 for(let i=0;i<d;i++)
 {
 const objekt=document.getElementById(this.id[i][0]);
@@ -152,7 +157,7 @@ if(((parseInt(window.visualViewport.pageTop)+(parseInt(window.visualViewport.hei
 
 const r="running"; // příkaz CSS aby spustil animaci
 
-if(this.id[i][0]==this.id[18][0]||this.id[i][0]==this.id[19][0]||this.id[i][0]==this.id[20][0]||this.id[i][0]==this.id[21][0])
+if(this.id[i][0]===this.id[18][0]||this.id[i][0]===this.id[19][0]||this.id[i][0]===this.id[20][0]||this.id[i][0]===this.id[21][0])
 {
 /* pokud bude najeto na některý z objektu SVG obrázků, které jsou po 4 */
 
@@ -181,7 +186,7 @@ document.getElementById(this.id[21][0]).style.animationPlayState=r; // spustí d
 return;
 }
 
-if(this.id[i][0]==this.id[22][0]||this.id[i][0]==this.id[23][0]||this.id[i][0]==this.id[24][0]||this.id[i][0]==this.id[25][0])
+if(this.id[i][0]===this.id[22][0]||this.id[i][0]===this.id[23][0]||this.id[i][0]===this.id[24][0]||this.id[i][0]===this.id[25][0])
 {
 /* pokud bude najeto na některý z objektu SVG obrázků, které jsou po 4 */
 
@@ -211,7 +216,7 @@ return;
 }
 
 
-if(this.id[i][0]==this.id[26][0]||this.id[i][0]==this.id[27][0]||this.id[i][0]==this.id[28][0]||this.id[i][0]==this.id[29][0])
+if(this.id[i][0]===this.id[26][0]||this.id[i][0]===this.id[27][0]||this.id[i][0]===this.id[28][0]||this.id[i][0]===this.id[29][0])
 {
 /* pokud bude najeto na některý z objektu SVG obrázků, které jsou po 4 */
 
@@ -297,6 +302,8 @@ event.dataTransfer.setData("text/html","<h2>Obrázky na tomto webu jsou chráně
 event.dataTransfer.setDragImage(this.obrazek,100,100); /* ukáže při přetahování obrázek jiný velikost 100x100px */
 }
 };
+
+const sdilet=new Sdilet(); // založí z class Sdilet objekt sdilet
 
 odkazy.uprav(); // funkce upraví odkazí a href na funkce javaskriptu s použitím metody scroolTo
 sdilet.prepis(); // zajistí přepis HREF tlačítek pro sdílení na Facebooku a Twittru
