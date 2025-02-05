@@ -8,10 +8,10 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 <meta charset="utf-8">
 <meta name="csrf-token" content="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8'); ?>">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
-<link rel="stylesheet" href="../css/kritic.css?v=2">
+<link rel="stylesheet" href="../css/kritic.css?v=3">
 <noscript>
-<link rel="stylesheet" href="../css/css.css?v=1">
-<link rel="stylesheet" href="../css/pripady.css?v=1">
+<link rel="stylesheet" href="../css/css.css?v=3">
+<link rel="stylesheet" href="../css/pripady.css?v=3">
 </noscript>
 <link rel="preload" as="image" href="../jpg/poz_m.png" media="(max-width:623px)">
 <link rel="preload" as="image" href="../jpg/poz.png" media="(min-width:624px)">
@@ -108,7 +108,7 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 <div class="lamac">
 <div class="m1">
 <h1 class="t_l">Skutečné případy pěstování konopí</h1>
-<p><strong>Trest za&nbsp;pěstování konopí je&nbsp;záležitostí individuálního posouzené každého případu.</strong> Skutečné případy pěstování konopí odráží skutečnost individuálního posouzení a&nbsp;zároveň uzavírají možnosti obhajoby těchto skutků.</p>
+<p><strong>Trest za&nbsp;pěstování konopí se&nbsp;posuzuje individuálně případ od&nbsp;případu.</strong> Skutečné případy pěstování konopí popisují individuální posouzení a&nbsp;zároveň ohraničují možnosti obhajoby těchto činů.</p>
 <p>Podle <cite>judikátů Nejvyššího soudu</cite> byly napsány <strong>skutečné případy pěstování konopí</strong>. Na&nbsp;základě nařízení <abbr title="General Data Protection Regulation">GDPR</abbr> jsou jména a&nbsp;místa smyšlená, <strong>děj</strong>&nbsp;však <strong>podle skutečných událostí</strong>.</p>
 <p><strong>Uvedené případy jsou důležité</strong>, i&nbsp;přes&nbsp;to, že&nbsp;jsou z&nbsp;dřívější doby, protože principy v&nbsp;nich uvedené, <strong>jsou&nbsp;závazné pro&nbsp;rozhodování všech soudů</strong>.</p>
 </div>
@@ -129,8 +129,20 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 <div class="cen"><div class="mw75">
 <section id="pripad-1" class="pr_box">
 <h2 class="p_nadpis">Případ Jirky</h2>
-<p class="p_clanek">Jirka byl <mark>odsouzen k&nbsp;roční podmínce</mark>, za&nbsp;to, že v&nbsp;bytě <strong>pěstoval 41&#8239;rostlin konopí</strong> in-door způsobem.</p>
-<img class="p_obr" src="../svg/pripad-1.svg" width="600" height="600" alt="případ pěstování konopí Jirky" loading="lazy">
+<p class="p_clanek">Jirka byl <mark>odsouzen k&nbsp;roční podmínce</mark>, za&nbsp;to, že&nbsp;v&nbsp;bytě <strong>pěstoval 41&#8239;rostlin konopí</strong> in-door způsobem.</p>
+
+<figure class="p_obr">
+<picture>
+<source media="(max-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-1-500.avif" type="image/avif">
+<source media="(min-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-1.avif" type="image/avif">
+<source media="(max-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-1-500.webp" type="image/webp">
+<source media="(min-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-1.webp" type="image/webp">
+<source media="(max-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-1-500.jpg" type="image/jpg">
+<source media="(min-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-1.jpg" type="image/jpg">
+<img width="500" height="500" src="../jpg/picture-pripady/konopi-pripad-1.jpg" alt="Případ pěstování konopí - Jirka" loading="lazy">
+</picture>
+<figcaption>Ilustrační obrázek pěstování konopí (generoval&nbsp;chatGPT)</figcaption>
+</figure>
 <p class="p_rozhodnuto">Ve&nbsp;věci rozhodnuto <time datetime="2017-05-18">18.&#8239;5.&#8239;2017</time></p>
 <div class="p_button"><a href="pripad-1/" title="Případ Jirky">Celý případ</a></div>
 </section>
@@ -141,7 +153,19 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 <section id="pripad-2" class="pr_box">
 <h2 class="p_nadpis">Případ Gustava a&nbsp;Jana</h2>
 <p class="p_clanek">Gustav a&nbsp;Jan byli <mark>odsouzeni k&nbsp;peněžité&shy;mu trestu</mark> 10&#8239;000&#8239;Kč, za&nbsp;to, že&nbsp;na&nbsp;okraji lesa <strong>pěstovali 9&#8239;rostlin konopí</strong>.</p>
-<img class="p_obr" src="../svg/pripad-2.svg" width="600" height="600" alt="případ pěstování konopí Gustava a Jana" loading="lazy">
+
+<figure class="p_obr">
+<picture>
+<source media="(max-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-2-500.avif" type="image/avif">
+<source media="(min-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-2.avif" type="image/avif">
+<source media="(max-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-2-500.webp" type="image/webp">
+<source media="(min-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-2.webp" type="image/webp">
+<source media="(max-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-2-500.jpg" type="image/jpg">
+<source media="(min-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-2.jpg" type="image/jpg">
+<img width="500" height="500" src="../jpg/picture-pripady/konopi-pripad-2.jpg" alt="Případ pěstování konopí - Gustav a Jan" loading="lazy">
+</picture>
+<figcaption>Ilustrační obrázek pěstování konopí (generoval&nbsp;chatGPT)</figcaption>
+</figure>
 <p class="p_rozhodnuto">Ve&nbsp;věci rozhodnuto <time datetime="2016-05-24">24.&#8239;5.&#8239;2016</time></p>
 <div class="p_button"><a href="pripad-2/" title="Případ Gustava a Jana">Celý případ</a></div>
 </section>
@@ -152,7 +176,19 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 <section id="pripad-3" class="pr_box">
 <h2 class="p_nadpis">Případ Marka a&nbsp;Davida</h2>
 <p class="p_clanek">Marek a&nbsp;David byli <mark>odsouzeni k&nbsp;roční podmínce</mark>, za&nbsp;to, že společně ve&nbsp;skleníku u&nbsp;rekreační chaty <strong>pěstovali 18&#8239;rostlin konopí</strong>.</p>
-<img class="p_obr" src="../svg/pripad-3.svg" width="600" height="600" alt="případ pěstování konopí Marka a Davida" loading="lazy">
+
+<figure class="p_obr">
+<picture>
+<source media="(max-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-3-500.avif" type="image/avif">
+<source media="(min-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-3.avif" type="image/avif">
+<source media="(max-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-3-500.webp" type="image/webp">
+<source media="(min-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-3.webp" type="image/webp">
+<source media="(max-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-3-500.jpg" type="image/jpg">
+<source media="(min-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-3.jpg" type="image/jpg">
+<img width="500" height="500" src="../jpg/picture-pripady/konopi-pripad-3.jpg" alt="Případ pěstování konopí - Marek a David" loading="lazy">
+</picture>
+<figcaption>Ilustrační obrázek pěstování konopí (generoval&nbsp;chatGPT)</figcaption>
+</figure>
 <p class="p_rozhodnuto">Ve&nbsp;věci rozhodnuto <time datetime="2017-07-21">21.&#8239;7.&#8239;2017</time></p>
 <div class="p_button"><a href="pripad-3/" title="Případ Marka a Davida">Celý případ</a></div>
 </section>
@@ -163,7 +199,19 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 <section id="pripad-4" class="pr_box">
 <h2 class="p_nadpis">Případ Josefa</h2>
 <p class="p_clanek">Josef byl <mark>odsouzen k&nbsp;podmínce 1,5&nbsp;roku</mark> <strong>za&nbsp;pěstování 70&#8239;rostlin konopí</strong> ze&nbsp;semen Dinafem Dinamed CBD plus.</p>
-<img class="p_obr" src="../svg/pripad-4.svg" width="600" height="600" alt="případ pěstování konopí Josefa" loading="lazy">
+
+<figure class="p_obr">
+<picture>
+<source media="(max-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-4-500.avif" type="image/avif">
+<source media="(min-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-4.avif" type="image/avif">
+<source media="(max-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-4-500.webp" type="image/webp">
+<source media="(min-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-4.webp" type="image/webp">
+<source media="(max-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-4-500.jpg" type="image/jpg">
+<source media="(min-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-4.jpg" type="image/jpg">
+<img width="500" height="500" src="../jpg/picture-pripady/konopi-pripad-4.jpg" alt="Případ pěstování konopí - Josef" loading="lazy">
+</picture>
+<figcaption>Ilustrační obrázek pěstování konopí (generoval&nbsp;chatGPT)</figcaption>
+</figure>
 <p class="p_rozhodnuto">Ve&nbsp;věci rozhodnuto <time datetime="2022-05-19">19.&#8239;5.&#8239;2022</time></p>
 <div class="p_button"><a href="pripad-4/" title="Případ Josefa">Celý případ</a></div>
 </section>
@@ -174,7 +222,19 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 <section id="pripad-5" class="pr_box">
 <h2 class="p_nadpis">Případ Johana</h2>
 <p class="p_clanek">Johan, několi&shy;krát trestaný za&nbsp;drogové delikty, se&nbsp;nepoučil z&nbsp;předešlého trestu za&nbsp;pěstování konopí a&nbsp;byl <mark>odsouzen k&nbsp;odnětí svobody na&nbsp;8&#8239;let</mark> <strong>za&nbsp;pěstování 20&#8239;rostlin</strong> konopí.</p>
-<img class="p_obr" src="../svg/pripad-5.svg" width="600" height="600" alt="případ pěstování konopí Johana" loading="lazy">
+
+<figure class="p_obr">
+<picture>
+<source media="(max-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-5-500.avif" type="image/avif">
+<source media="(min-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-5.avif" type="image/avif">
+<source media="(max-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-5-500.webp" type="image/webp">
+<source media="(min-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-5.webp" type="image/webp">
+<source media="(max-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-5-500.jpg" type="image/jpg">
+<source media="(min-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-5.jpg" type="image/jpg">
+<img width="500" height="500" src="../jpg/picture-pripady/konopi-pripad-5.jpg" alt="Případ pěstování konopí - Johan" loading="lazy">
+</picture>
+<figcaption>Ilustrační obrázek pěstování konopí (generoval&nbsp;chatGPT)</figcaption>
+</figure>
 <p class="p_rozhodnuto">Ve&nbsp;věci rozhodnuto <time datetime="2021-12-16">16.&#8239;12.&#8239;2021</time></p>
 <div class="p_button"><a href="pripad-5/" title="Případ Josefa">Celý případ</a></div>
 </section>
@@ -185,7 +245,19 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 <section id="pripad-6" class="pr_box">
 <h2 class="p_nadpis">Případ Kevina a&nbsp;Dalibora</h2>
 <p class="p_clanek">Kevin, <strong>pěstoval</strong> in-door způsobem v&nbsp;pěstebním stanu <strong>75&#8239;rostlin konopí</strong> a&nbsp;Dalibor mu&nbsp;k&nbsp;tomu pronajal místnost. Za&nbsp;pomoc při&nbsp;pěstování konopí byl Dalibor <mark>odsouzen k&nbsp;podmínce 2,5&#8239;roku a&nbsp;peněžitému trestu</mark> 40&#8239;000&#8239;Kč.</p>
-<img class="p_obr" src="../svg/pripad-6.svg" width="600" height="600" alt="případ pěstování konopí Kevina a Dalibora" loading="lazy">
+
+<figure class="p_obr">
+<picture>
+<source media="(max-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-6-500.avif" type="image/avif">
+<source media="(min-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-6.avif" type="image/avif">
+<source media="(max-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-6-500.webp" type="image/webp">
+<source media="(min-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-6.webp" type="image/webp">
+<source media="(max-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-6-500.jpg" type="image/jpg">
+<source media="(min-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-6.jpg" type="image/jpg">
+<img width="500" height="500" src="../jpg/picture-pripady/konopi-pripad-6.jpg" alt="Případ pěstování konopí - Kevin a Dalibor" loading="lazy">
+</picture>
+<figcaption>Ilustrační obrázek pěstování konopí (generoval&nbsp;chatGPT)</figcaption>
+</figure>
 <p class="p_rozhodnuto">Ve&nbsp;věci rozhodnuto <time datetime="2022-05-11">11.&#8239;5.&#8239;2022</time></p>
 <div class="p_button"><a href="pripad-6/" title="Případ Kevina a Dalibora">Celý případ</a></div>
 </section>
@@ -195,8 +267,20 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 <div class="cen"><div class="mw75">
 <section id="pripad-7" class="pr_box">
 <h2 class="p_nadpis">Případ Karla</h2>
-<p class="p_clanek">Karel, <strong>pěstoval</strong> na&nbsp;zahradě rodinného domu amatérským způsobem <strong>28&#8239;rostlin konopí</strong>. V&nbsp;domě sušil a&nbsp;skladoval další konopí. Celková hmotnost konopí byla 37&#8239;kg. Karel byl <mark>odsouzen k&nbsp;6&#8239;rokům odnětí svobody.</mark> </p>
-<img class="p_obr" src="../svg/pripad-7.svg" width="600" height="600" alt="případ pěstování konopí Karla" loading="lazy">
+<p class="p_clanek">Karel, <strong>pěstoval</strong> na&nbsp;zahradě rodinného domu amatérským způsobem <strong>28&#8239;rostlin konopí</strong>. V&nbsp;domě sušil a&nbsp;skladoval další konopí. Celková hmotnost konopí byla 37&#8239;kg. Karel byl <mark>odsouzen k&nbsp;6&#8239;rokům odnětí svobody.</mark></p>
+
+<figure class="p_obr">
+<picture>
+<source media="(max-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-7-500.avif" type="image/avif">
+<source media="(min-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-7.avif" type="image/avif">
+<source media="(max-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-7-500.webp" type="image/webp">
+<source media="(min-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-7.webp" type="image/webp">
+<source media="(max-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-7-500.jpg" type="image/jpg">
+<source media="(min-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-7.jpg" type="image/jpg">
+<img width="500" height="500" src="../jpg/picture-pripady/konopi-pripad-7.jpg" alt="Případ pěstování konopí - Karel" loading="lazy">
+</picture>
+<figcaption>Ilustrační obrázek pěstování konopí (generoval&nbsp;chatGPT)</figcaption>
+</figure>
 <p class="p_rozhodnuto">Ve&nbsp;věci rozhodnuto <time datetime="2020-04-14">14.&#8239;4.&#8239;2020</time></p>
 <div class="p_button"><a href="pripad-7/" title="Případ Karla">Celý případ</a></div>
 </section>
@@ -207,7 +291,19 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 <section id="pripad-8" class="pr_box">
 <h2 class="p_nadpis">Případ Michala</h2>
 <p class="p_clanek">Michal, byl v&nbsp;podmínce za&nbsp;pěstování konopí, přesto opět doma <strong>pěstoval</strong> profesionálním způsobem celkem <strong>40&#8239;rostlin konopí</strong>. Za&nbsp;pěstování konopí byl <mark>odsouzen k&nbsp;2&#8239;rokům a&nbsp;2&#8239;měsícům odnětí svobody.</mark> </p>
-<img class="p_obr" src="../svg/pripad-8.svg" width="600" height="600" alt="případ pěstování konopí Michala" loading="lazy">
+
+<figure class="p_obr">
+<picture>
+<source media="(max-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-8-500.avif" type="image/avif">
+<source media="(min-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-8.avif" type="image/avif">
+<source media="(max-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-8-500.webp" type="image/webp">
+<source media="(min-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-8.webp" type="image/webp">
+<source media="(max-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-8-500.jpg" type="image/jpg">
+<source media="(min-width:500px)" srcset="../jpg/picture-pripady/konopi-pripad-8.jpg" type="image/jpg">
+<img width="500" height="500" src="../jpg/picture-pripady/konopi-pripad-8.jpg" alt="Případ pěstování konopí - Michal" loading="lazy">
+</picture>
+<figcaption>Ilustrační obrázek pěstování konopí (generoval&nbsp;chatGPT)</figcaption>
+</figure>
 <p class="p_rozhodnuto">Ve&nbsp;věci rozhodnuto <time datetime="2023-11-22">22.&#8239;11.&#8239;2023</time></p>
 <div class="p_button"><a href="pripad-8/" title="Případ Michala">Celý případ</a></div>
 </section>
@@ -257,6 +353,6 @@ $_SESSION['csrf_token'] = $_SESSION['csrf_token'] ?? bin2hex(random_bytes(16));
 </address>
 </footer>
 </div>
-<script src="../script/pripady.js?v=3" async></script>
+<script src="../script/pripady.js?v=4" async></script>
 </body>
 </html>

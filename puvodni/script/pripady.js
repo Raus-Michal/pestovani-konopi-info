@@ -1,4 +1,8 @@
-﻿/* POUŽITÍ JAVASCRIPTU PRO STRÁNKY BEZ SCRIPTU V PRVNÍ ÚROVNI ZANOŘENÍ STRÁNKY V ADRESÁŘI */
+﻿
+"use strict";
+
+
+/* POUŽITÍ JAVASCRIPTU PRO STRÁNKY BEZ SCRIPTU V PRVNÍ ÚROVNI ZANOŘENÍ STRÁNKY V ADRESÁŘI */
 const stylAsyn={
 nacti(url){ 
 /* Funkce načte Asynchroně CSS styly */
@@ -10,31 +14,40 @@ setTimeout(()=>{
 skript.parentNode.insertBefore(styl,skript);
 });}};
   
-stylAsyn.nacti("../css/css.css?v=1"); // spuštění funkce k načtení ccs asynchronně
-stylAsyn.nacti("../css/pripady.css?v=1"); // spuštění funkce k načtení ccs asynchronně
+stylAsyn.nacti("../css/css.css?v=3"); // spuštění funkce k načtení ccs asynchronně
+stylAsyn.nacti("../css/pripady.css?v=3"); // spuštění funkce k načtení ccs asynchronně
 
-const sdilet={_idFB:"sdil-fb",_idTW:"sdil-tw",SIRKA:600,VYSKA:600,min_VYSKA:800,min_SIRKA:800,
-async prepis(){
-let vyska=parseInt(window.screen.height); /* výška obrazovky */
-let sirka=parseInt(window.screen.width); /* šířka obrazovky */
-let z_leva=sirka/2-this.SIRKA/2;
-let z_hora=vyska/2-this.VYSKA/2;
 
-/* funkce přepíše HREF na tlačítkách sdílet Facebook a sdílet Twitter */
-if(document.getElementById(this._idFB)&&vyska>this.min_VYSKA&&sirka>this.min_SIRKA)
+class Sdilet{
+_idFB="sdil-fb";
+_idTW="sdil-tw";
+SIRKA=600;
+VYSKA=600;
+min_VYSKA=800;
+min_SIRKA=800;
+prepis(){
+const vyska=window.screen.height; // výška obrazovky
+const sirka=window.screen.width; // šířka obrazovky
+const z_leva=sirka/2-this.SIRKA/2;
+const z_hora=vyska/2-this.VYSKA/2;
+const updateLink=(id,windowName)=>
 {
-const hrefFB=document.getElementById(this._idFB).href; // načte stávající href odkazu
-document.getElementById(this._idFB).target=""; // target musí být prázdý jinak nové okno neotevře
-let textFB=`window.open('${hrefFB}','Sdílet na FB','width=${this.SIRKA},height=${this.VYSKA},left=${z_leva},top=${z_hora}');`; // příprava nového href
-document.getElementById(this._idFB).href=`javascript:${textFB}`; // dokončení nového href
+const el=document.getElementById(id);
+if(el&&vyska>this.min_VYSKA&&sirka>this.min_SIRKA)
+{
+const href=el.href; // načte stávající href odkazu
+el.removeAttribute("href"); // odstraní stávající href
+el.addEventListener("click",(e)=>{
+e.preventDefault(); // zabrání standardnímu chování odkazu
+window.open(href, windowName, `width=${this.SIRKA},height=${this.VYSKA},left=${z_leva},top=${z_hora},resizable=yes`); // otevře nové okno
+});
 }
-if(document.getElementById(this._idTW)&&vyska>this.min_VYSKA&&sirka>this.min_SIRKA)
-{
-const hrefTW=document.getElementById(this._idTW).href;
-document.getElementById(this._idTW).target=""; /* target musí být prázdý jinak nové okno neotevře */
-let textTW=`window.open('${hrefTW}','Sdílet na Twittru','width=${this.SIRKA},height=${this.VYSKA},left=${z_leva},top=${z_hora}');`;
-document.getElementById(this._idTW).href=`javascript:${textTW}`;
-}}};
+};
+// Přepíše HREF na tlačítkách sdílet Facebook a sdílet Twitter
+updateLink(this._idFB,'Sdílet na FB');
+updateLink(this._idTW,'Sdílet na Twitteru');
+}
+};
 
 
 const v_port={
@@ -119,6 +132,8 @@ event.dataTransfer.setData("text/html","<h2>Obrázky na tomto webu jsou chráně
 event.dataTransfer.setDragImage(this.obrazek,100,100); /* ukáže při přetahování obrázek jiný velikost 100x100px */
 }
 };
+
+const sdilet=new Sdilet(); // založí z class Sdilet objekt sdilet
 
 v_port.zahajit(); /* aktivuje Visual View port API + úprava hlavičky na 100vh */
 sdilet.prepis(); /* zajistí přepis HREF tlačítek pro sdílení na Facebooku a Twittru */

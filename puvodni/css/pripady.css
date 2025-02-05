@@ -15,7 +15,7 @@ grid-template-areas:
 "p_button p_button p_button p_button p_button p_button p_button p_button p_button p_button p_button p_button"
 ;
 gap:1rem;
-padding:3rem 1rem 3rem 1rem;
+padding:4rem 1rem 4rem 1rem;
 background:var(--b5);
 }
 
@@ -25,38 +25,22 @@ border-bottom:0px dotted var(--b3);
 }
 
 /* pokud je obrazovka větší než 39em - 624px */
-@media only screen and (min-width:39em)
+@media only screen and (min-width:44em)
 {
 .pr_box
 {
 grid-template-areas:
-"nadpis nadpis nadpis nadpis nadpis nadpis . . . . . ."
-". clanek clanek clanek clanek clanek . p_obr p_obr p_obr p_obr p_obr"
+"nadpis nadpis nadpis nadpis nadpis p_obr p_obr p_obr p_obr p_obr p_obr p_obr"
+". . . . . p_obr p_obr p_obr p_obr p_obr p_obr p_obr"
+". . . . . p_obr p_obr p_obr p_obr p_obr p_obr p_obr"
+"clanek clanek clanek clanek clanek p_obr p_obr p_obr p_obr p_obr p_obr p_obr"
+". . . . . p_obr p_obr p_obr p_obr p_obr p_obr p_obr"
+". . . . . p_obr p_obr p_obr p_obr p_obr p_obr p_obr"
+". . . . . p_obr p_obr p_obr p_obr p_obr p_obr p_obr"
 ". . . . . . . . . . . ."
-". roz roz roz roz roz . . p_button p_button p_button p_button"
+". roz roz roz roz roz . p_button p_button p_button p_button p_button"
 ;
-padding-left:0;
 }}
-
-
-/* pokud je obrazovka větší než 81em - 1296px */
-@media only screen and (min-width:81em)
-{
-.pr_box
-{
-grid-template-areas:
-"nadpis nadpis nadpis nadpis nadpis nadpis . . . . . ."
-". clanek clanek clanek clanek . . . p_obr p_obr p_obr p_obr"
-". . . . . . . . . . . ."
-". roz roz roz roz roz . . . p_button p_button p_button"
-;
-padding-right:2rem;
-padding-left:0;
-}
-}
-
-
-
 
 .p_nadpis,.p_clanek 
 {
@@ -74,13 +58,6 @@ border-radius:8px;
 grid-area:nadpis;
 }
 
-@media only screen and (min-width:39em)
-{
-.p_nadpis
-{
-border-left:1rem solid var(--b5);
-}}
-
 
 
 .p_clanek
@@ -92,11 +69,15 @@ font-weight:bold;
 -ms-hyphens:auto;
 -webkit-hyphens:auto;
 hyphens:auto;
+min-width:100%;
 }
 
 .p_obr
 {
 grid-area:p_obr;
+aspect-ratio:1/1;
+color:black;
+max-width:1024px;
 }
 
 .p_rozhodnuto
@@ -115,18 +96,73 @@ display:flex;
 align-items:stretch;
 }
 
+
+@-webkit-keyframes pulse{
+0%{
+-webkit-filter:contrast(1);
+}
+50%{
+-webkit-filter:contrast(1.5);
+}
+100%{
+-webkit-filter:contrast(1);
+}
+}
+  
+@-moz-keyframes pulse{
+0%{
+-moz-filter:contrast(1);
+}
+50%{
+-moz-filter:contrast(1.5);
+}
+100%{
+-moz-filter:contrast(1);
+}
+}
+  
+@-o-keyframes pulse{
+0%{
+-o-filter:contrast(1);
+}
+50%{
+-o-filter:contrast(1.5);
+}
+100%{
+-o-filter:contrast(1);
+}
+}
+
+@keyframes pulse{
+0%{
+filter:contrast(1);
+}
+50%{
+ filter:contrast(1.5);
+}
+100%{
+ filter:contrast(1);
+}
+}
+
 .p_button a
 {
-font-family:"BioRhyme","sans-serif";
+text-transform:uppercase;
+font-family:"BioRhyme",sans-serif;
 font-size:1.5rem;
 font-weight:500;
 width:100%;
+max-width:20rem;
 margin:auto;
 text-align:center;
 background:var(--b2);
 border:1px dotted var(--b3);
-border-radius:8px;
+border-radius:50px;
 padding:1rem;
+-webkit-animation:pulse 2s infinite; /* Animace pro Webkit prohlížeče */
+-moz-animation:pulse 2s infinite; /* Animace pro Mozilla prohlížeče */
+-o-animation:pulse 2s infinite; /* Animace pro Opera prohlížeče */
+animation:pulse 2s infinite; /* animace */
 }
 
 .h-pribeh
@@ -266,4 +302,9 @@ background:var(--b5);
 .bor-b
 {
 border-bottom:8px dotted var(--b3);
+}
+
+.central
+{
+margin:2rem auto 4rem auto;
 }
