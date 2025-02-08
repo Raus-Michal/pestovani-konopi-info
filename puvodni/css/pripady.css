@@ -24,37 +24,24 @@ article .pr_box:last-child
 border-bottom:0px dotted var(--b3);
 }
 
-/* pokud je obrazovka větší než 39em - 624px */
-@media only screen and (min-width:44em)
+/* pokud je obrazovka větší než 47em */
+@media only screen and (min-width:47em)
 {
 .pr_box
 {
 grid-template-areas:
 "nadpis nadpis nadpis nadpis nadpis p_obr p_obr p_obr p_obr p_obr p_obr p_obr"
-". . . . . p_obr p_obr p_obr p_obr p_obr p_obr p_obr"
-". . . . . p_obr p_obr p_obr p_obr p_obr p_obr p_obr"
 "clanek clanek clanek clanek clanek p_obr p_obr p_obr p_obr p_obr p_obr p_obr"
-". . . . . p_obr p_obr p_obr p_obr p_obr p_obr p_obr"
-". . . . . p_obr p_obr p_obr p_obr p_obr p_obr p_obr"
 ". . . . . p_obr p_obr p_obr p_obr p_obr p_obr p_obr"
 ". . . . . . . . . . . ."
 ". roz roz roz roz roz . p_button p_button p_button p_button p_button"
 ;
 }}
 
-.p_nadpis,.p_clanek 
-{
-background:white;
-padding:1rem;
-}
-
-.p_clanek,.p_rozhodnuto
-{
-border-radius:8px;
-}
-
 .p_nadpis
 {
+color:black;
+font-size:2.5rem;
 grid-area:nadpis;
 }
 
@@ -63,13 +50,18 @@ grid-area:nadpis;
 .p_clanek
 {
 grid-area:clanek;
+justify-self:center;
 align-self:center;
 font-size:1rem;
 font-weight:bold;
 -ms-hyphens:auto;
 -webkit-hyphens:auto;
 hyphens:auto;
-min-width:100%;
+width:100%;
+max-width:31.25rem; /* 500px */
+background-color:white;
+padding:1rem;
+border-radius:8px;
 }
 
 .p_obr
@@ -78,6 +70,12 @@ grid-area:p_obr;
 aspect-ratio:1/1;
 color:black;
 max-width:1024px;
+}
+
+.p_obr figcaption
+{
+font-size:.9rem;
+font-style:italic;
 }
 
 .p_rozhodnuto
