@@ -15,7 +15,7 @@ skript.parentNode.insertBefore(styl,skript);
 });}};
   
 stylAsyn.nacti("../css/css.css?v=3"); // spuštění funkce k načtení ccs asynchronně
-stylAsyn.nacti("../css/pripady.css?v=4"); // spuštění funkce k načtení ccs asynchronně
+stylAsyn.nacti("../css/pripady.css?v=6"); // spuštění funkce k načtení ccs asynchronně
 
 
 class Sdilet{

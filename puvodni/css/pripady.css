@@ -64,9 +64,16 @@ padding:1rem;
 border-radius:8px;
 }
 
-.p_obr
+.a_obr
 {
 grid-area:p_obr;
+display:block;
+width:100%;
+height:auto;
+}
+
+.p_obr
+{
 aspect-ratio:1/1;
 color:black;
 max-width:1024px;
